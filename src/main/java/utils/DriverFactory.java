@@ -3,6 +3,7 @@ package utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Properties;
@@ -16,10 +17,12 @@ public class DriverFactory {
     public static WebDriver initDriver(String browser) {
 
         properties = ConfigReader.getProperties();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
 
         if (browser.equals("Chrome")){
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
         } else if (browser.equals("Firefox")){
             WebDriverManager.chromedriver().setup();
             driver = new FirefoxDriver();

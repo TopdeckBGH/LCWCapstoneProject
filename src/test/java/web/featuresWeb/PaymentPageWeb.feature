@@ -3,10 +3,10 @@ Feature: Web Payment Page
 
   @Web @PaymentPage
   Scenario: Check Payment Page
-    Given User Logged In
-#    When Hover to "KADIN" Button
-#    And Click to "Bluz" Button of "GİYİM" Category
-#    And Click to "Siyah" Button of "Renk" Category
+#    Given User Logged In
+    When Hover to "KADIN" Button
+    And Click to "Bluz" Button of "GİYİM" Category
+    And Click to "Siyah" Button of "Renk" Category
 #    And Click to the First Product
 #    And Click to "M" Button of "Beden"
 #    And Click to "SEPETE EKLE" Button

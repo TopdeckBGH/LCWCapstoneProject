@@ -28,7 +28,6 @@ public class ElementHelper {
      */
     public WebElement findElement(By key) {
         WebElement element = presenceElement(key);
-        scrollToElement(element);
         return element;
     }
 
@@ -119,16 +118,13 @@ public class ElementHelper {
      * @param text
      */
     public void clickElementWithText(By key, String text) {
-        boolean find = false;
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
             if (element.getText().contains(text)) {
                 element.click();
-                find = true;
                 break;
             }
         }
-        Assert.assertEquals(true, find);
     }
 
     /**
@@ -170,7 +166,7 @@ public class ElementHelper {
      * @return
      */
     public WebElement presenceElement(By key) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(key));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(key));
     }
 
     /**
@@ -178,7 +174,7 @@ public class ElementHelper {
      * @return
      */
     public List<WebElement> presenceElements(By key) {
-        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(key));
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(key));
     }
 
     /**
@@ -208,5 +204,29 @@ public class ElementHelper {
             }
         }
         Assert.assertEquals(false, find);
+    }
+
+    /**
+     * İmleci, istenilen Element'in üzerine getirir (Hover).
+     * @param key Girilen Element'in ayırt eidici özelliğidir.
+     */
+    public void hoverToElement(By key){
+        WebElement element = presenceElement(key);
+        action.moveToElement(element).perform();
+    }
+
+
+    /**
+     * @param key
+     * @param text
+     */
+    public void hoverElementWithText(By key, String text) {
+        List<WebElement> elements = findElements(key);
+        for (WebElement element : elements) {
+            if (element.getText().contains(text)) {
+                action.moveToElement(element).perform();
+                break;
+            }
+        }
     }
 }
