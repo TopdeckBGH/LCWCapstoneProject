@@ -1,4 +1,4 @@
-package stepDefinitions;
+package web.stepDefinitionsWeb;
 
 public class CartStepsWeb {
 }
