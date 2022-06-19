@@ -1,4 +1,4 @@
 package stepDefinitions;
 
-public class SearchSteps {
+public class CartStepsWeb {
 }
