@@ -19,12 +19,12 @@ public class HomePageWeb {
 
     // Elements
     By loginButton = By.cssSelector("a[href=\"https://www.lcwaikiki.com/tr-TR/TR/giris\"] span.dropdown-label");
+    By fastDeliveryButton = By.cssSelector("[href=\"/tr-TR/TR/FastDelivery\"]");
     By categoryList = By.cssSelector("li.menu-header-item");
     By blouseButton = By.xpath("//*[contains(@href, '/tr-TR/TR/kategori/kadin/bluz')]");
 
     // Texts
     String womanCategory = "KADIN";
-    String blouse = "Bluz";
 
     // Methods
     public void clickLoginButton(){
@@ -32,6 +32,7 @@ public class HomePageWeb {
     }
 
     public void hoverWomanButton(){
+        elementHelper.findElements(fastDeliveryButton);
         elementHelper.hoverElementWithText(categoryList, womanCategory);
     }
 
