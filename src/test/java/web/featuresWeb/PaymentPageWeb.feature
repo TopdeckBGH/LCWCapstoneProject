@@ -7,10 +7,10 @@ Feature: Web Payment Page
     When Hover to "KADIN" Button
     And Click to "Bluz" Button of "GİYİM" Category
     And Click to "Siyah" Button of "Renk" Category
-#    And Click to the First Product
-#    And Click to "M" Button of "Beden"
-#    And Click to "SEPETE EKLE" Button
-#    And Click to "Sepetim" Button
+    And Click to the First Product
+    And Click to "M" Button of "Beden"
+    And Click to "SEPETE EKLE" Button
+    And Click to "Sepetim" Button
 #    Then Check "Title" Label of the Product
 #    And Check "Code" Label of the Product
 #    And Check "Size" Label of the Product

@@ -220,7 +220,7 @@ public class ElementHelper {
      * @param key
      * @param text
      */
-    public void hoverElementWithText(By key, String text) {
+    public void hoverToElementWithText(By key, String text) {
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
             if (element.getText().contains(text)) {
@@ -229,4 +229,14 @@ public class ElementHelper {
             }
         }
     }
+
+    /**
+     *
+     * @param xOffset
+     * @param yOffset
+     */
+    public void clickToLocation(int xOffset, int yOffset){
+        action.moveByOffset(xOffset, yOffset).click().perform();
+    }
+
 }

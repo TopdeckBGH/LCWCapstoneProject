@@ -19,13 +19,4 @@ public class HomePageStepsWeb {
         homePageWeb.clickBlouseButton();
     }
 
-    @And("Click to \"Siyah\" Button of \"Renk\" Category")
-    public void clickBlousewCategory(){
-        try {
-            Thread.sleep(4553);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        homePageWeb.clickBlouseButton();
-    }
 }

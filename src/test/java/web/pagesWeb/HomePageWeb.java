@@ -33,7 +33,7 @@ public class HomePageWeb {
 
     public void hoverWomanButton(){
         elementHelper.findElements(fastDeliveryButton);
-        elementHelper.hoverElementWithText(categoryList, womanCategory);
+        elementHelper.hoverToElementWithText(categoryList, womanCategory);
     }
 
     public void clickBlouseButton(){
