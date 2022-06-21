@@ -9,17 +9,17 @@ public class ProductStepsWeb {
     ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getDriver());
 
     @And("Click to \"M\" Button of \"Beden\"")
-    public void clickMediumSizeButton(){
+    public void clickMediumSizeButton() {
         productPageWeb.clickMSizeButton();
     }
 
     @And("Click to \"SEPETE EKLE\" Button")
-    public void clickAddToCart(){
+    public void clickAddToCart() {
         productPageWeb.clickAddToCart();
     }
 
     @And("Click to \"Sepetim\" Button")
-    public void clickToMyCartButton(){
+    public void clickToMyCartButton() {
         productPageWeb.clickMyCartButton();
     }
 }

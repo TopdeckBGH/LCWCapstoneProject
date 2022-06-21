@@ -10,12 +10,12 @@ public class HomePageStepsWeb {
     HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getDriver());
 
     @When("Hover to \"KADIN\" Button")
-    public void hoverWomanCategory(){
+    public void hoverWomanCategory() {
         homePageWeb.hoverWomanButton();
     }
 
     @And("Click to \"Bluz\" Button of \"GİYİM\" Category")
-    public void clickBlouseCategory(){
+    public void clickBlouseCategory() {
         homePageWeb.clickBlouseButton();
     }
 

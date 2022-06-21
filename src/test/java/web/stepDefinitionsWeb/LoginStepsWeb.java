@@ -9,7 +9,7 @@ public class LoginStepsWeb {
     LoginPageWeb loginPageWeb = new LoginPageWeb(DriverFactory.getDriver());
 
     @Given("User Logged In")
-    public void login(){
+    public void login() {
         loginPageWeb.loginWebMail();
     }
 

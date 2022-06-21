@@ -27,16 +27,16 @@ public class HomePageWeb {
     String womanCategory = "KADIN";
 
     // Methods
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         elementHelper.click(loginButton);
     }
 
-    public void hoverWomanButton(){
+    public void hoverWomanButton() {
         elementHelper.findElements(fastDeliveryButton);
         elementHelper.hoverToElementWithText(categoryList, womanCategory);
     }
 
-    public void clickBlouseButton(){
+    public void clickBlouseButton() {
         elementHelper.click(blouseButton);
     }
 

@@ -11,12 +11,12 @@ public class CartStepsWeb {
     CartPageWeb cartPageWeb = new CartPageWeb(DriverFactory.getDriver());
 
     @Then("Check \"Title\" Label of the Product")
-    public void assertProductItemTitle(){
+    public void assertProductItemTitle() {
         cartPageWeb.checkProductItemTitle();
     }
 
     @And("Check \"Size\" Label of the Product")
-    public void assertProductItemSize(){
+    public void assertProductItemSize() {
         cartPageWeb.checkProductItemSize();
     }
 
@@ -26,7 +26,7 @@ public class CartStepsWeb {
     }
 
     @When("Click to \"ÖDEME ADIMINA GEÇ\" Button")
-    public void clickGoToPaymentButton(){
+    public void clickGoToPaymentButton() {
         cartPageWeb.clickGoToPaymentPageButton();
     }
 

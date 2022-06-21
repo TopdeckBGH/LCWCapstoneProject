@@ -17,7 +17,6 @@ public class ProductPageWeb {
     WebDriverWait wait;
     ElementHelper elementHelper;
 
-
     // Elements
     By mediumSizeButton = By.cssSelector("div.pt-5 div.option-size a[size=\"M\"]");
     By addToCartButton = By.cssSelector("[data-tracking-label=\"SepeteEkle\"]");
@@ -30,7 +29,7 @@ public class ProductPageWeb {
     // Methods
     public void clickMSizeButton() {
         //If one or more sizes are out of stock, the page prevents clicking on items except those sizes. That is why this methods is here.
-       // elementHelper.clickToLocation(0, 0);
+        // elementHelper.clickToLocation(0, 0);
         elementHelper.click(mediumSizeButton);
     }
 

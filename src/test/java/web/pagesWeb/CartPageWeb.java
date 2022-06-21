@@ -23,7 +23,6 @@ public class CartPageWeb {
     By productItemSize = By.cssSelector(".rd-cart-item-size strong");
     By productItemCount = By.cssSelector("div.option-quantity input");
     By goToPaymentStepButton = By.cssSelector("div.price-info-area [data-tracking-label=\"Siparişi Tamamla\"]");
-    By deleteProductButton = By.cssSelector("i.fa-trash-o");
 
     // Attributes
     String quantityAttribute = "data-quantity";
