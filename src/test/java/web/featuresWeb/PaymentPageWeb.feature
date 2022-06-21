@@ -12,8 +12,7 @@ Feature: Web Payment Page
     And Click to "SEPETE EKLE" Button
     And Click to "Sepetim" Button
     Then Check "Title" Label of the Product
-    And Check "Code" Label of the Product
     And Check "Size" Label of the Product
     And Check Product Count
-#    When Click to "ÖDEME ADIMINA GEÇ" Button
+    When Click to "ÖDEME ADIMINA GEÇ" Button
 #    Then Check Payment Page

@@ -177,6 +177,10 @@ public class ElementHelper {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(key));
     }
 
+    public WebElement clickableElement(By key) {
+        return wait.until(ExpectedConditions.elementToBeClickable(key));
+    }
+
     /**
      * @param element
      */

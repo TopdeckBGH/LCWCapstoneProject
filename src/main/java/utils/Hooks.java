@@ -2,6 +2,7 @@ package utils;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
@@ -21,6 +22,8 @@ public class Hooks {
 
     @After
     public void after() {
+        driver.navigate().back();
+        driver.findElement(By.cssSelector("i.fa-trash-o")).click();
         driver.quit();
     }
 }

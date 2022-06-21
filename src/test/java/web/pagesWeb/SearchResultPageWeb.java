@@ -19,7 +19,7 @@ public class SearchResultPageWeb {
 
     // Elements
     By blackColourButton = By.xpath("//*[@class='color-filter-option__text' and contains(., 'Siyah')]");
-    By firstSearchedProduct = By.cssSelector("div.product-card:nth-child(1)");
+    By firstSearchedProduct = By.cssSelector("div.product-card:nth-child(3)");
 
     // Methods
     public void clickBlackColour(){

@@ -2,6 +2,7 @@ package web.stepDefinitionsWeb;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import utils.DriverFactory;
 import web.pagesWeb.CartPageWeb;
 
@@ -14,11 +15,6 @@ public class CartStepsWeb {
         cartPageWeb.checkProductItemTitle();
     }
 
-    @And("Check \"Code\" Label of the Product")
-    public void assertProductItemCode(){
-        cartPageWeb.checkProductItemCode();
-    }
-
     @And("Check \"Size\" Label of the Product")
     public void assertProductItemSize(){
         cartPageWeb.checkProductItemSize();
@@ -27,6 +23,11 @@ public class CartStepsWeb {
     @And("Check Product Count")
     public void assertProductCount() {
         cartPageWeb.checkProductItemCount();
+    }
+
+    @When("Click to \"ÖDEME ADIMINA GEÇ\" Button")
+    public void clickGoToPaymentButton(){
+        cartPageWeb.clickGoToPaymentPageButton();
     }
 
 }

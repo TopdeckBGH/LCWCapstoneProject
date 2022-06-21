@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.DriverFactory;
 import utils.ElementHelper;
 
 public class CartPageWeb {
@@ -15,18 +14,16 @@ public class CartPageWeb {
         this.elementHelper = new ElementHelper(driver);
     }
 
-    ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getDriver());
-
     WebDriver driver;
     WebDriverWait wait;
     ElementHelper elementHelper;
 
     // Elements
     By productItemTitleLabel = By.cssSelector(".rd-cart-item-title");
-    By productItemCodeLabel = By.cssSelector("rd-cart-item-code");
     By productItemSize = By.cssSelector(".rd-cart-item-size strong");
-    By productItemColour = By.cssSelector("rd-cart-item-color");
     By productItemCount = By.cssSelector("div.option-quantity input");
+    By goToPaymentStepButton = By.cssSelector("div.price-info-area [data-tracking-label=\"Siparişi Tamamla\"]");
+    By deleteProductButton = By.cssSelector("i.fa-trash-o");
 
     // Attributes
     String quantityAttribute = "data-quantity";
@@ -37,13 +34,7 @@ public class CartPageWeb {
 
     // Methods
     public void checkProductItemTitle() {
-        //Assert.assertTrue(elementHelper.getText(productItemTitleLabel).contains(ProductPageWeb.productTitle));
-        Assert.assertEquals(elementHelper.getText(productItemTitleLabel),"4");
-    }
-
-    public void checkProductItemCode() {
-        Assert.assertEquals(elementHelper.getText(productItemCodeLabel) + " - " +
-                elementHelper.getText(productItemColour), ProductPageWeb.productCode);
+        Assert.assertTrue(ProductPageWeb.productTitle.contains(elementHelper.getText(productItemTitleLabel)));
     }
 
     public void checkProductItemSize() {
@@ -53,5 +44,10 @@ public class CartPageWeb {
     public void checkProductItemCount() {
         Assert.assertEquals(elementHelper.getAttribute(productItemCount, quantityAttribute), itemCount);
     }
+
+    public void clickGoToPaymentPageButton() {
+        elementHelper.click(goToPaymentStepButton);
+    }
+
 
 }
