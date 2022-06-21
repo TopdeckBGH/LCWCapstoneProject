@@ -239,4 +239,8 @@ public class ElementHelper {
         action.moveByOffset(xOffset, yOffset).click().perform();
     }
 
+    public void assertTwoElementsText(By keyActual){
+
+    }
+
 }
