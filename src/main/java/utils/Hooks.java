@@ -24,6 +24,7 @@ public class Hooks {
     public void after() {
         driver.navigate().back();
         driver.findElement(By.cssSelector("i.fa-trash-o")).click();
+        driver.findElement(By.cssSelector(".sc-delete")).click();
         driver.quit();
     }
 }
