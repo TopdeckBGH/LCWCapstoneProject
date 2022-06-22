@@ -22,6 +22,8 @@ public class CartPageWeb {
     By productItemTitleLabel = By.cssSelector(".rd-cart-item-title");
     By productItemSize = By.cssSelector(".rd-cart-item-size strong");
     By productItemCount = By.cssSelector("div.option-quantity input");
+    By orderSummaryLabel = By.cssSelector("h1.mb-15");
+
     By goToPaymentStepButton = By.cssSelector("div.price-info-area [data-tracking-label=\"Siparişi Tamamla\"]");
 
     // Attributes
@@ -30,6 +32,7 @@ public class CartPageWeb {
     // Strings
     String itemSize = "M";
     String itemCount = "1";
+    String orderSummary = "SİPARİŞ ÖZETİ";
 
     // Methods
     public void checkProductItemTitle() {
@@ -46,6 +49,10 @@ public class CartPageWeb {
 
     public void clickGoToPaymentPageButton() {
         elementHelper.click(goToPaymentStepButton);
+    }
+
+    public void checkOrderSummary(){
+        Assert.assertEquals(elementHelper.getText(orderSummaryLabel), orderSummary);
     }
 
 

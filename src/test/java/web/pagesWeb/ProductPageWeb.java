@@ -21,9 +21,9 @@ public class ProductPageWeb {
     By mediumSizeButton = By.cssSelector("div.pt-5 div.option-size a[size=\"M\"]");
     By addToCartButton = By.cssSelector("[data-tracking-label=\"SepeteEkle\"]");
     By myCartButton = By.id("shopping-cart");
-
     By productTitleLabel = By.cssSelector("div.row div.product-title");
 
+    // Strings
     public static String productTitle;
 
     // Methods
