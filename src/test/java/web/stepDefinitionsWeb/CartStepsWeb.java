@@ -25,6 +25,11 @@ public class CartStepsWeb {
         cartPageWeb.checkProductItemCount();
     }
 
+    @And("Check Order Summary Label")
+    public void assertOrderSummaryLabel(){
+        cartPageWeb.checkOrderSummary();
+    }
+
     @When("Click to \"ÖDEME ADIMINA GEÇ\" Button")
     public void clickGoToPaymentButton() {
         cartPageWeb.clickGoToPaymentPageButton();
