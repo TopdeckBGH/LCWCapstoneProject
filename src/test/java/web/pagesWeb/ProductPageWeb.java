@@ -22,6 +22,8 @@ public class ProductPageWeb {
     By addToCartButton = By.cssSelector("[data-tracking-label=\"SepeteEkle\"]");
     By myCartButton = By.id("shopping-cart");
     By productTitleLabel = By.cssSelector("div.row div.product-title");
+    By noSizeMAlert = By.cssSelector("div.product-detail a[size=\"M\"][data-stock=\"0\"]");
+    By noSizeAlert = By.cssSelector("div.product-detail [data-stock=\"0\"]");
 
     // Strings
     public static String productTitle;
@@ -29,7 +31,10 @@ public class ProductPageWeb {
     // Methods
     public void clickMSizeButton() {
         //If one or more sizes are out of stock, the page prevents clicking on items except those sizes. That is why this methods is here.
-        // elementHelper.clickToLocation(0, 0);
+        if(elementHelper.findElements(noSizeAlert) != null){
+            elementHelper.clickToLocation(0, 0);
+        }
+
         elementHelper.click(mediumSizeButton);
     }
 

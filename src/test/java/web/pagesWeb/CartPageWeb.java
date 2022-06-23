@@ -25,7 +25,7 @@ public class CartPageWeb {
     String itemSize = "M";
     String itemCount = "1";
     String orderSummary = "SİPARİŞ ÖZETİ";
-    String totalSum = "Ürün Toplamı";
+    String totalSum = "Ürün Toplam";
     String subTotalSum = "Ara Toplam";
     String shipmentFee = "Kargo Ücreti";
     String grandTotal = "GENEL TOPLAM";

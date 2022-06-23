@@ -18,15 +18,16 @@ public class SearchResultPageWeb {
     WebDriverWait wait;
     ElementHelper elementHelper;
 
+    // Strings
+    String blouseResults = "Bluz Modelleri";
+    String blackColour = "Siyah";
+
     // Elements
     By blouseResultsLabel = By.cssSelector("div h1");
     By blackColourButton = By.xpath("//*[@class='color-filter-option__text' and contains(., 'Siyah')]");
     By blackColourFilterLabel = By.cssSelector("span.applied-filters__value");
     By firstSearchedProduct = By.cssSelector("div.product-card:nth-child(3)");
 
-    // Strings
-    String blouseResults = "Bluz Modelleri";
-    String blackColour = "Siyah";
 
     // Methods
     public void checkBlouseResultsLabel(){
