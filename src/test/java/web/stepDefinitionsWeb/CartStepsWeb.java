@@ -30,6 +30,45 @@ public class CartStepsWeb {
         cartPageWeb.checkOrderSummary();
     }
 
+    @And("Check \"Ürün Toplam\" Label")
+    public void assertProductTotalSumLabel() {
+        cartPageWeb.checkProductTotalSumLabel();
+    }
+
+    @And("Check Product Total Sum")
+    public void assertProductTotalSum() {
+        cartPageWeb.checkProductTotalSum();
+    }
+
+    @And("Check \"Ara Toplam\" Label")
+    public void assertSubTotalLabel() {
+        cartPageWeb.checkSubTotalSumLabel();
+    }
+
+    @And("Check Subtotal Sum")
+    public void assertSubTotal() {
+        cartPageWeb.checkSubTotalSum();
+    }
+    @And("Check \"Kargo Ücreti\" Label")
+    public void assertShipmentFeeLabel() {
+        cartPageWeb.checkShipmentFeeLabel();
+    }
+
+    @And("Check Shipment Fee Sum")
+    public void assertShipmentFee() {
+        cartPageWeb.checkShipmentFee();
+    }
+
+    @And("Check \"GENEL TOPLAM\" Label")
+    public void assertGrandTotalLabel() {
+        cartPageWeb.checkGrandTotalSumLabel();
+    }
+
+    @And("Check Grand Total Sum")
+    public void assertGrandTotal() {
+        cartPageWeb.checkGrandTotalSum();
+    }
+
     @When("Click to \"ÖDEME ADIMINA GEÇ\" Button")
     public void clickGoToPaymentButton() {
         cartPageWeb.clickGoToPaymentPageButton();

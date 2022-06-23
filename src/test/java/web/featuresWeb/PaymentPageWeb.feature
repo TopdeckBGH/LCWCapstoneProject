@@ -22,7 +22,7 @@ Feature: Web Payment Page
     And Check "Ara Toplam" Label
     And Check Subtotal Sum
     And Check "Kargo Ücreti" Label
-    And Check Shiptment Fee Sum
+    And Check Shipment Fee Sum
     And Check "GENEL TOPLAM" Label
     And Check Grand Total Sum
     When Click to "ÖDEME ADIMINA GEÇ" Button

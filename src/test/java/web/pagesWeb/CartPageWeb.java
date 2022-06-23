@@ -18,6 +18,18 @@ public class CartPageWeb {
     WebDriverWait wait;
     ElementHelper elementHelper;
 
+    // Attributes
+    String quantityAttribute = "data-quantity";
+
+    // Strings
+    String itemSize = "M";
+    String itemCount = "1";
+    String orderSummary = "SİPARİŞ ÖZETİ";
+    String totalSum = "Ürün Toplamı";
+    String subTotalSum = "Ara Toplam";
+    String shipmentFee = "Kargo Ücreti";
+    String grandTotal = "GENEL TOPLAM";
+
     // Elements
 //region myCart
     By productItemTitleLabel = By.cssSelector(".rd-cart-item-title");
@@ -26,42 +38,34 @@ public class CartPageWeb {
     By orderSummaryLabel = By.cssSelector("h1.mb-15");
 //endregion
 
-//region priceInfoArea
+    //region priceInfoArea
     By goToPaymentStepButton = By.cssSelector("div.price-info-area [data-tracking-label=\"Siparişi Tamamla\"]");
-    By productTotalSumLabel = By.xpath(priceInfoAreaLabelHelper("Ürün Toplam"));
-    By productTotalSum = By.xpath(priceInfoAreaSumHelper("Ürün Toplam"));
-    By productSubTotalSumLabel = By.xpath(priceInfoAreaLabelHelper("Ara Toplam"));
-    By productSubTotalSum = By.xpath(priceInfoAreaSumHelper("Ara Toplam"));
-    By shipmentFeeSumLabel = By.xpath(priceInfoAreaLabelHelper("Kargo Ücreti"));
-    By shipmentFeeSum = By.xpath(priceInfoAreaSumHelper("Kargo Ücreti"));
-    By grandTotalSumLabel = By.xpath(priceInfoAreaLabelHelper("GENEL TOPLAM"));
-    By grandTotalSum = By.xpath(priceInfoAreaSumHelper("GENEL TOPLAM"));
+    By productTotalSumLabel = By.xpath(priceInfoAreaLabelHelper(totalSum));
+    By productTotalSum = By.xpath(priceInfoAreaSumHelper(totalSum));
+    By productSubTotalSumLabel = By.xpath(priceInfoAreaLabelHelper(subTotalSum));
+    By productSubTotalSum = By.xpath(priceInfoAreaSumHelper(subTotalSum));
+    By shipmentFeeLabel = By.xpath(priceInfoAreaLabelHelper(shipmentFee));
+    By shipmentFeeSum = By.xpath(priceInfoAreaSumHelper(shipmentFee));
+    By grandTotalSumLabel = By.xpath(priceInfoAreaLabelHelper(grandTotal));
+    By grandTotalSum = By.xpath(priceInfoAreaSumHelper(grandTotal));
 //endregion
 
-    // Attributes
-    String quantityAttribute = "data-quantity";
-
-    // Strings
-    String itemSize = "M";
-    String itemCount = "1";
-    String orderSummary = "SİPARİŞ ÖZETİ";
 
     // Methods
+
     /**
-     *
      * @param priceInfo
      * @return
      */
-    public String priceInfoAreaLabelHelper(String priceInfo){
+    public String priceInfoAreaLabelHelper(String priceInfo) {
         return "//*[@class='price-info-area']/* //span[@class='pull-left' and contains(., '" + priceInfo + "')]";
     }
 
     /**
-     *
      * @param priceInfo
      * @return
      */
-    public String priceInfoAreaSumHelper(String priceInfo){
+    public String priceInfoAreaSumHelper(String priceInfo) {
         return priceInfoAreaLabelHelper(priceInfo) + "//following-sibling::span";
     }
 
@@ -81,9 +85,40 @@ public class CartPageWeb {
         elementHelper.click(goToPaymentStepButton);
     }
 
-    public void checkOrderSummary(){
+    public void checkOrderSummary() {
         Assert.assertEquals(elementHelper.getText(orderSummaryLabel), orderSummary);
     }
 
+    public void checkProductTotalSumLabel() {
+        Assert.assertEquals(elementHelper.getText(productTotalSumLabel), totalSum);
+    }
 
+    public void checkProductTotalSum() {
+        Assert.assertEquals(elementHelper.getText(productTotalSum), totalSum);
+    }
+
+    public void checkSubTotalSumLabel() {
+        Assert.assertEquals(elementHelper.getText(productSubTotalSumLabel), subTotalSum);
+
+    }
+
+    public void checkSubTotalSum() {
+        Assert.assertEquals(elementHelper.getText(productSubTotalSum), subTotalSum);
+    }
+
+    public void checkShipmentFeeLabel() {
+        Assert.assertEquals(elementHelper.getText(shipmentFeeLabel), shipmentFee);
+    }
+
+    public void checkShipmentFee() {
+        Assert.assertEquals(elementHelper.getText(shipmentFeeSum), shipmentFee);
+    }
+
+    public void checkGrandTotalSumLabel() {
+        Assert.assertEquals(elementHelper.getText(grandTotalSumLabel), grandTotal);
+    }
+
+    public void checkGrandTotalSum() {
+        Assert.assertEquals(elementHelper.getText(grandTotalSum), grandTotal);
+    }
 }
