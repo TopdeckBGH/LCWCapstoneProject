@@ -8,7 +8,7 @@ public class ProductStepsWeb {
 
     ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getDriver());
 
-    @And("Click to \"M\" Button of \"Beden\"")
+    @And("Click to \"M\" Button of \"Beden\" Label")
     public void clickMediumSizeButton() {
         productPageWeb.clickMSizeButton();
     }

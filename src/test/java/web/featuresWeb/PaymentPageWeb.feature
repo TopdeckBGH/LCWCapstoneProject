@@ -10,7 +10,7 @@ Feature: Web Payment Page
     When Click to "Siyah" Button of "Renk" Category
     Then Check Black Filter Colour Label
     When Click to the First Product
-    And Click to "M" Button of "Beden"
+    And Click to "M" Button of "Beden" Label
     And Click to "SEPETE EKLE" Button
     And Click to "Sepetim" Button
     Then Check "Title" Label of the Product
