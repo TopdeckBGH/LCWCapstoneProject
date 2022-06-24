@@ -33,12 +33,13 @@ public class LoginPageAndroid {
 
     // Methods
     public void checkLoginPage(){
-        Assert.assertEquals(appiumDriver.findElement(loginLabel).getText(), loginText);
+        Assert.assertEquals(elementHelper.getText(loginLabel), loginText);
     }
 
     public void loginAndroidMail(){
         elementHelper.sendKey(emailTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "mail"));
         elementHelper.sendKey(passwordTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "password"));
+        elementHelper.click(loginButton);
     }
 
 }

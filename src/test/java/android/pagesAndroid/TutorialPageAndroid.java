@@ -22,7 +22,7 @@ public class TutorialPageAndroid {
 
     // Methods
     public void clickSkipButton() {
-        appiumDriver.findElement(skipButton).click();
+        elementHelper.click(skipButton);
     }
 
 }

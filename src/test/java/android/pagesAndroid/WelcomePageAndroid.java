@@ -24,13 +24,18 @@ public class WelcomePageAndroid {
     // Elements
     By welcomeLabel = By.id("com.lcwaikiki.android:id/txtWelcomeHeader");
     By profileButton = By.xpath("//android.widget.TextView[@text='Profil']");
+    By categoriesButton = By.xpath("//android.widget.TextView[@text='Kategoriler']");
 
     public void checkWelcomeLabel() {
-        Assert.assertEquals(appiumDriver.findElement(welcomeLabel).getText(), welcomeText);
+        Assert.assertEquals(elementHelper.getText(welcomeLabel), welcomeText);
     }
 
     public void clickProfileButton() {
-        appiumDriver.findElement(profileButton).click();
+        elementHelper.click(profileButton);
+    }
+
+    public void clickCategoriesButton() {
+        elementHelper.click(categoriesButton);
     }
 
 }
