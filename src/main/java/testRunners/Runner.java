@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import utils.DriverFactory;
 
 @CucumberOptions(
-        features = {"src/test/java/web/featuresWeb"},
+        features = {"src/test/java/android/featuresAndroid"},
         glue = {"android/stepDefinitionsAndroid", "utils"},
         tags = "@Android",
         plugin = {"summary", "pretty", "html:Reports/CucumberReport/Reports.html",

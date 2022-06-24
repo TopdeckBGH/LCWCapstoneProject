@@ -73,10 +73,10 @@ public class DriverFactory {
 
         int impWait = Integer.parseInt(properties.getProperty("implicityWait"));
         appiumDriver.manage().timeouts().implicitlyWait(impWait, TimeUnit.SECONDS);
-        return getDriver();
+        return getAppDriver();
     }
 
-    public static AppiumDriver getDriver() {
+    public static AppiumDriver getAppDriver() {
         return appiumDriver;
     }
 }
