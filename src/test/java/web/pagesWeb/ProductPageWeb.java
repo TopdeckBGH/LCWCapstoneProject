@@ -1,14 +1,10 @@
 package web.pagesWeb;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.DriverFactory;
 import utils.ElementHelper;
-
-import java.sql.Driver;
 
 public class ProductPageWeb {
 
@@ -22,7 +18,7 @@ public class ProductPageWeb {
     WebDriverWait wait;
     ElementHelper elementHelper;
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getDriver());
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getWebDriver());
 
     // Strings
     public static String productTitle;

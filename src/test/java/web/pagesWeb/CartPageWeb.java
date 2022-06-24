@@ -19,7 +19,7 @@ public class CartPageWeb {
     WebDriverWait wait;
     ElementHelper elementHelper;
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getDriver());
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getWebDriver());
 
     // Attributes
     String quantityAttribute = "data-quantity";

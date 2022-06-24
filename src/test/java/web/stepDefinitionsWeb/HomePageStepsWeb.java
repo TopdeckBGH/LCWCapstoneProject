@@ -7,7 +7,7 @@ import web.pagesWeb.HomePageWeb;
 
 public class HomePageStepsWeb {
 
-    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getDriver());
+    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getWebDriver());
 
     @When("Hover to \"KADIN\" Button")
     public void hoverWomanCategory() {

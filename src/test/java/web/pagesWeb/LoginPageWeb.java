@@ -21,7 +21,7 @@ public class LoginPageWeb {
     ElementHelper elementHelper;
     JSONHelper jsonHelper;
 
-    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getDriver());
+    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getWebDriver());
 
     // Elements
     By mailTextField = By.cssSelector("[placeholder=\"E-Posta Adresiniz\"]");

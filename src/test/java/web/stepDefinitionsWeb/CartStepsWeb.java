@@ -8,7 +8,7 @@ import web.pagesWeb.CartPageWeb;
 
 public class CartStepsWeb {
 
-    CartPageWeb cartPageWeb = new CartPageWeb(DriverFactory.getDriver());
+    CartPageWeb cartPageWeb = new CartPageWeb(DriverFactory.getWebDriver());
 
     @Then("Check \"Title\" Label of the Product")
     public void assertProductItemTitle() {

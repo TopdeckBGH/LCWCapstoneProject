@@ -6,7 +6,7 @@ import web.pagesWeb.LoginPageWeb;
 
 public class LoginStepsWeb {
 
-    LoginPageWeb loginPageWeb = new LoginPageWeb(DriverFactory.getDriver());
+    LoginPageWeb loginPageWeb = new LoginPageWeb(DriverFactory.getWebDriver());
 
     @Given("User Logged In")
     public void login() {

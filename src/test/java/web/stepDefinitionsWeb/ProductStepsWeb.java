@@ -6,7 +6,7 @@ import web.pagesWeb.ProductPageWeb;
 
 public class ProductStepsWeb {
 
-    ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getDriver());
+    ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getWebDriver());
 
     @And("Click to \"M\" Button of \"Beden\" Label")
     public void clickMediumSizeButton() {
