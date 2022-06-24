@@ -5,10 +5,9 @@ Feature: Android Payment Page
   Scenario: Check Payment Page
     Given User Logged In Android App
     When Tap on "Kategoriler" Button
-#    Then Check Categories Page
-#    When Tap on "Giyim" Button
-#    Then Check Wearing Page
-#    And Tap on "Bluz" Button
+    Then Check Categories Page
+    When Tap on "Giyim" Button
+    And Tap on "Bluz" Button
 #    Then Check Blouse Products Page
 #    When Tap on "Filtre" Button
 #    Then Check Filter Page
