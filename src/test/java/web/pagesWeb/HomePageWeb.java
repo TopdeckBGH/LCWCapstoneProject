@@ -3,19 +3,19 @@ package web.pagesWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.webUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class HomePageWeb {
 
     public HomePageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelperAndroid(driver);
+        this.elementHelperWeb = new ElementHelperWeb(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperWeb elementHelperWeb;
 
     // Elements
     By loginButton = By.cssSelector("a[href=\"https://www.lcwaikiki.com/tr-TR/TR/giris\"] span.dropdown-label");
@@ -28,16 +28,16 @@ public class HomePageWeb {
 
     // Methods
     public void clickLoginButton() {
-        elementHelper.click(loginButton);
+        elementHelperWeb.click(loginButton);
     }
 
     public void hoverWomanButton() {
-        elementHelper.findElements(fastDeliveryButton);
-        elementHelper.hoverToElementWithText(categoryList, womanCategory);
+        elementHelperWeb.findElements(fastDeliveryButton);
+        elementHelperWeb.hoverToElementWithText(categoryList, womanCategory);
     }
 
     public void clickBlouseButton() {
-        elementHelper.click(blouseButton);
+        elementHelperWeb.click(blouseButton);
     }
 
 }

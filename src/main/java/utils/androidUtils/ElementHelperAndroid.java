@@ -1,5 +1,9 @@
 package utils.androidUtils;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,14 +13,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
 import java.util.List;
 
 public class ElementHelperAndroid {
-    WebDriver driver;
+    AppiumDriver driver;
     WebDriverWait wait;
     Actions action;
 
-    public ElementHelperAndroid(WebDriver driver) {
+    public ElementHelperAndroid(AppiumDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
         this.action = new Actions(driver);
@@ -255,6 +260,15 @@ public class ElementHelperAndroid {
             return result;
         }
         return result;
+    }
+
+    public void dragAndDropElement(int firstX, int firstY, int lastX, int lastY) {
+        TouchAction action = new TouchAction(driver);
+        action.press(PointOption.point(firstX,firstY))
+                .waitAction(new WaitOptions().withDuration(Duration.ofMillis(1000))) //you can change wait durations as per your requirement
+                .moveTo(PointOption.point(lastX, lastY))
+                .release()
+                .perform();
     }
 
 }

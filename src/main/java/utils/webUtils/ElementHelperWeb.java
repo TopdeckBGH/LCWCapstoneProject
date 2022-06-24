@@ -11,12 +11,12 @@ import org.testng.Assert;
 
 import java.util.List;
 
-public class ElementHelperAndroid {
+public class ElementHelperWeb {
     WebDriver driver;
     WebDriverWait wait;
     Actions action;
 
-    public ElementHelperAndroid(WebDriver driver) {
+    public ElementHelperWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
         this.action = new Actions(driver);

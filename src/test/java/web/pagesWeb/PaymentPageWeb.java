@@ -3,19 +3,19 @@ package web.pagesWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.webUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class PaymentPageWeb {
 
     public PaymentPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelperAndroid(driver);
+        this.elementHelperWeb = new ElementHelperWeb(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperWeb elementHelperWeb;
 
     // Elements
     By productTotalSumLabel = By.cssSelector("p.total :first-child");

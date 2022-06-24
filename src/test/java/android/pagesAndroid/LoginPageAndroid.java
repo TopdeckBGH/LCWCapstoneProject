@@ -5,7 +5,8 @@ import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.webUtils.ElementHelperAndroid;
+import utils.androidUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 import utils.JSONHelper;
 
 public class LoginPageAndroid {
@@ -13,13 +14,13 @@ public class LoginPageAndroid {
     public LoginPageAndroid(AppiumDriver appiumDriver) {
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
-        this.elementHelper = new ElementHelperAndroid(appiumDriver);
+        this.elementHelperAndroid = new ElementHelperAndroid(appiumDriver);
         this.jsonHelper = new JSONHelper();
     }
 
     AppiumDriver appiumDriver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperAndroid elementHelperAndroid;
     JSONHelper jsonHelper;
 
     // Strings
@@ -33,13 +34,13 @@ public class LoginPageAndroid {
 
     // Methods
     public void checkLoginPage(){
-        Assert.assertEquals(elementHelper.getText(loginLabel), loginText);
+        Assert.assertEquals(elementHelperAndroid.getText(loginLabel), loginText);
     }
 
     public void loginAndroidMail(){
-        elementHelper.sendKey(emailTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "mail"));
-        elementHelper.sendKey(passwordTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "password"));
-        elementHelper.click(loginButton);
+        elementHelperAndroid.sendKey(emailTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "mail"));
+        elementHelperAndroid.sendKey(passwordTextField, jsonHelper.getAttributeFromJSON("src/test/resources/credentials/user1.json", "password"));
+        elementHelperAndroid.click(loginButton);
     }
 
 }

@@ -4,19 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.webUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class SearchResultPageWeb {
 
     public SearchResultPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelperAndroid(driver);
+        this.elementHelperWeb = new ElementHelperWeb(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperWeb elementHelperWeb;
 
     // Strings
     String blouseResults = "Bluz Modelleri";
@@ -43,32 +43,32 @@ public class SearchResultPageWeb {
        // if (elementHelper.findElements(productOldPriceLabel) != null & elementHelper.findElements(productCartPriceLabel) == null){
         //if ((elementHelper.findElements(productOldPriceLabel).size() > 0) & (elementHelper.findElements(productCartPriceLabel).size()) <= 0){
         //if (Assert.assertNull(elementHelper.findElement(productOldPriceLabel)) & Assert.assertNull(elementHelper.findElements(productCartPriceLabel)){
-        if ((elementHelper.assertElementIsVisible(productOldPriceLabel)) && (!elementHelper.assertElementIsVisible(productCartPriceLabel))){
-            return price = elementHelper.getText(productDiscountedPriceLabel);
+        if ((elementHelperWeb.assertElementIsVisible(productOldPriceLabel)) && (!elementHelperWeb.assertElementIsVisible(productCartPriceLabel))){
+            return price = elementHelperWeb.getText(productDiscountedPriceLabel);
         }
-        else if (elementHelper.assertElementIsVisible(productOldPriceLabel) & elementHelper.assertElementIsVisible(productCartPriceLabel)){
-            return price = elementHelper.getText((productCartPriceLabel));
+        else if (elementHelperWeb.assertElementIsVisible(productOldPriceLabel) & elementHelperWeb.assertElementIsVisible(productCartPriceLabel)){
+            return price = elementHelperWeb.getText((productCartPriceLabel));
         }
         else {
-            return price = elementHelper.getText(productPriceNoDiscount);
+            return price = elementHelperWeb.getText(productPriceNoDiscount);
         }
     }
 
     public void checkBlouseResultsLabel(){
-        Assert.assertEquals(elementHelper.getText(blouseResultsLabel), blouseResults);
+        Assert.assertEquals(elementHelperWeb.getText(blouseResultsLabel), blouseResults);
     }
 
     public void checkFilterColourBlack(){
-        Assert.assertEquals(elementHelper.getText(blackColourFilterLabel), blackColour);
+        Assert.assertEquals(elementHelperWeb.getText(blackColourFilterLabel), blackColour);
     }
 
     public void clickBlackColour(){
-        elementHelper.click(blackColourButton);
+        elementHelperWeb.click(blackColourButton);
     }
 
     public void clickFirstProduct() {
         getDiscountTypeAndValue();
-        elementHelper.click(thirdSearchedProduct);
+        elementHelperWeb.click(thirdSearchedProduct);
     }
 
 

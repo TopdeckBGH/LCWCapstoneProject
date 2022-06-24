@@ -12,9 +12,10 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactoryAndroid {
 
-        static Properties properties;
-        static AppiumDriver appiumDriver;
-        static DesiredCapabilities capabilities;
+    static Properties properties;
+    static AppiumDriver appiumDriver;
+    static DesiredCapabilities capabilities;
+
     public static AppiumDriver initAppDriver(String browser) {
         properties = ConfigReader.getProperties();
 

@@ -5,19 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.webUtils.DriverFactoryWeb;
-import utils.webUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class CartPageWeb {
 
     public CartPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelperAndroid(driver);
+        this.elementHelperWeb = new ElementHelperWeb(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperWeb elementHelperWeb;
 
     SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
 
@@ -73,55 +73,55 @@ public class CartPageWeb {
     }
 
     public void checkProductItemTitle() {
-        Assert.assertTrue(ProductPageWeb.productTitle.contains(elementHelper.getText(productItemTitleLabel)));
+        Assert.assertTrue(ProductPageWeb.productTitle.contains(elementHelperWeb.getText(productItemTitleLabel)));
     }
 
     public void checkProductItemSize() {
-        Assert.assertEquals(elementHelper.getText(productItemSize), itemSize);
+        Assert.assertEquals(elementHelperWeb.getText(productItemSize), itemSize);
     }
 
     public void checkProductItemCount() {
-        Assert.assertEquals(elementHelper.getAttribute(productItemCount, quantityAttribute), itemCount);
+        Assert.assertEquals(elementHelperWeb.getAttribute(productItemCount, quantityAttribute), itemCount);
     }
 
     public void clickGoToPaymentPageButton() {
-        elementHelper.click(goToPaymentStepButton);
+        elementHelperWeb.click(goToPaymentStepButton);
     }
 
     public void checkOrderSummary() {
-        Assert.assertEquals(elementHelper.getText(orderSummaryLabel), orderSummary);
+        Assert.assertEquals(elementHelperWeb.getText(orderSummaryLabel), orderSummary);
     }
 
     public void checkProductTotalSumLabel() {
-        Assert.assertEquals(elementHelper.getText(productTotalSumLabel), SearchResultPageWeb.price);
+        Assert.assertEquals(elementHelperWeb.getText(productTotalSumLabel), SearchResultPageWeb.price);
     }
 
     public void checkProductTotalSum() {
-        Assert.assertEquals(elementHelper.getText(productTotalSum),  SearchResultPageWeb.price);
+        Assert.assertEquals(elementHelperWeb.getText(productTotalSum),  SearchResultPageWeb.price);
     }
 
     public void checkSubTotalSumLabel() {
-        Assert.assertEquals(elementHelper.getText(productSubTotalSumLabel),  SearchResultPageWeb.price);
+        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSumLabel),  SearchResultPageWeb.price);
 
     }
 
     public void checkSubTotalSum() {
-        Assert.assertEquals(elementHelper.getText(productSubTotalSum), subTotalSum);
+        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSum), subTotalSum);
     }
 
     public void checkShipmentFeeLabel() {
-        Assert.assertEquals(elementHelper.getText(shipmentFeeLabel), shipmentFee);
+        Assert.assertEquals(elementHelperWeb.getText(shipmentFeeLabel), shipmentFee);
     }
 
     public void checkShipmentFee() {
-        Assert.assertEquals(elementHelper.getText(shipmentFeeSum), shipmentFee);
+        Assert.assertEquals(elementHelperWeb.getText(shipmentFeeSum), shipmentFee);
     }
 
     public void checkGrandTotalSumLabel() {
-        Assert.assertEquals(elementHelper.getText(grandTotalSumLabel), grandTotal);
+        Assert.assertEquals(elementHelperWeb.getText(grandTotalSumLabel), grandTotal);
     }
 
     public void checkGrandTotalSum() {
-        Assert.assertEquals(elementHelper.getText(grandTotalSum), grandTotal);
+        Assert.assertEquals(elementHelperWeb.getText(grandTotalSum), grandTotal);
     }
 }

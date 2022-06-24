@@ -4,19 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.webUtils.DriverFactoryWeb;
-import utils.webUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class ProductPageWeb {
 
     public ProductPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelperAndroid(driver);
+        this.elementHelperWeb = new ElementHelperWeb(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperWeb elementHelperWeb;
 
     SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
 
@@ -37,16 +37,16 @@ public class ProductPageWeb {
     // Methods
     public void clickMSizeButton() {
         //If one or more sizes are out of stock, the page prevents clicking on items except those sizes. That is why this methods is here.
-        elementHelper.clickToLocation(0, 0);
-        elementHelper.click(mediumSizeButton);
+        elementHelperWeb.clickToLocation(0, 0);
+        elementHelperWeb.click(mediumSizeButton);
     }
 
     public void clickAddToCart() {
-        productTitle = elementHelper.getText(productTitleLabel);
-        elementHelper.click(addToCartButton);
+        productTitle = elementHelperWeb.getText(productTitleLabel);
+        elementHelperWeb.click(addToCartButton);
     }
 
     public void clickMyCartButton() {
-        elementHelper.click(myCartButton);
+        elementHelperWeb.click(myCartButton);
     }
 }

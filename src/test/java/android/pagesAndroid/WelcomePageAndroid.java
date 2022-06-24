@@ -4,19 +4,20 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.webUtils.ElementHelperAndroid;
+import utils.androidUtils.ElementHelperAndroid;
+import utils.webUtils.ElementHelperWeb;
 
 public class WelcomePageAndroid {
 
     public WelcomePageAndroid(AppiumDriver appiumDriver) {
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
-        this.elementHelper = new ElementHelperAndroid(appiumDriver);
+        this.elementHelperAndroid = new ElementHelperAndroid(appiumDriver);
     }
 
     AppiumDriver appiumDriver;
     WebDriverWait wait;
-    ElementHelperAndroid elementHelper;
+    ElementHelperAndroid elementHelperAndroid;
 
     // Strings
     String welcomeText = "Hoş geldin";
@@ -27,15 +28,15 @@ public class WelcomePageAndroid {
     By categoriesButton = By.xpath("//android.widget.TextView[@text='Kategoriler']");
 
     public void checkWelcomeLabel() {
-        Assert.assertEquals(elementHelper.getText(welcomeLabel), welcomeText);
+        Assert.assertEquals(elementHelperAndroid.getText(welcomeLabel), welcomeText);
     }
 
     public void clickProfileButton() {
-        elementHelper.click(profileButton);
+        elementHelperAndroid.click(profileButton);
     }
 
     public void clickCategoriesButton() {
-        elementHelper.click(categoriesButton);
+        elementHelperAndroid.click(categoriesButton);
     }
 
 }
