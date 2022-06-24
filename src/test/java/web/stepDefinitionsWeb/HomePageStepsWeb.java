@@ -2,12 +2,12 @@ package web.stepDefinitionsWeb;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
-import utils.DriverFactory;
+import utils.webUtils.DriverFactoryWeb;
 import web.pagesWeb.HomePageWeb;
 
 public class HomePageStepsWeb {
 
-    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getWebDriver());
+    HomePageWeb homePageWeb = new HomePageWeb(DriverFactoryWeb.getWebDriver());
 
     @When("Hover to \"KADIN\" Button")
     public void hoverWomanCategory() {

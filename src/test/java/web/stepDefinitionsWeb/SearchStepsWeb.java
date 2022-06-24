@@ -2,12 +2,12 @@ package web.stepDefinitionsWeb;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import utils.DriverFactory;
+import utils.webUtils.DriverFactoryWeb;
 import web.pagesWeb.SearchResultPageWeb;
 
 public class SearchStepsWeb {
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getWebDriver());
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
 
     @Then("Check Blouse Results Label")
     public void assertBlouseResultsLabel() {

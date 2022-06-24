@@ -7,7 +7,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.ElementHelper;
+import utils.webUtils.ElementHelperAndroid;
 
 import java.time.Duration;
 
@@ -17,13 +17,13 @@ public class CategoriesPageAndroid {
         //this.driver = appiumDriver;
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
-        this.elementHelper = new ElementHelper(appiumDriver);
+        this.elementHelper = new ElementHelperAndroid(appiumDriver);
         this.action = new TouchAction(appiumDriver);
     }
 
     //WebDriver driver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
     AppiumDriver appiumDriver;
     TouchAction action;
 

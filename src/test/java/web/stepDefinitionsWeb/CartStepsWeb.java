@@ -3,12 +3,12 @@ package web.stepDefinitionsWeb;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import utils.DriverFactory;
+import utils.webUtils.DriverFactoryWeb;
 import web.pagesWeb.CartPageWeb;
 
 public class CartStepsWeb {
 
-    CartPageWeb cartPageWeb = new CartPageWeb(DriverFactory.getWebDriver());
+    CartPageWeb cartPageWeb = new CartPageWeb(DriverFactoryWeb.getWebDriver());
 
     @Then("Check \"Title\" Label of the Product")
     public void assertProductItemTitle() {

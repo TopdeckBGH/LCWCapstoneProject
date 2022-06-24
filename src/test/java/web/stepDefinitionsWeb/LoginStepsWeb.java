@@ -1,12 +1,12 @@
 package web.stepDefinitionsWeb;
 
 import io.cucumber.java.en.Given;
-import utils.DriverFactory;
+import utils.webUtils.DriverFactoryWeb;
 import web.pagesWeb.LoginPageWeb;
 
 public class LoginStepsWeb {
 
-    LoginPageWeb loginPageWeb = new LoginPageWeb(DriverFactory.getWebDriver());
+    LoginPageWeb loginPageWeb = new LoginPageWeb(DriverFactoryWeb.getWebDriver());
 
     @Given("User Logged In")
     public void login() {

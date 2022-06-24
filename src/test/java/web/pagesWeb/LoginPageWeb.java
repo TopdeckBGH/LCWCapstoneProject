@@ -3,8 +3,8 @@ package web.pagesWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.DriverFactory;
-import utils.ElementHelper;
+import utils.webUtils.DriverFactoryWeb;
+import utils.webUtils.ElementHelperAndroid;
 import utils.JSONHelper;
 
 public class LoginPageWeb {
@@ -12,16 +12,16 @@ public class LoginPageWeb {
     public LoginPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelper(driver);
+        this.elementHelper = new ElementHelperAndroid(driver);
         this.jsonHelper = new JSONHelper();
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
     JSONHelper jsonHelper;
 
-    HomePageWeb homePageWeb = new HomePageWeb(DriverFactory.getWebDriver());
+    HomePageWeb homePageWeb = new HomePageWeb(DriverFactoryWeb.getWebDriver());
 
     // Elements
     By mailTextField = By.cssSelector("[placeholder=\"E-Posta Adresiniz\"]");

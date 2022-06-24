@@ -4,22 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.DriverFactory;
-import utils.ElementHelper;
+import utils.webUtils.DriverFactoryWeb;
+import utils.webUtils.ElementHelperAndroid;
 
 public class CartPageWeb {
 
     public CartPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelper(driver);
+        this.elementHelper = new ElementHelperAndroid(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getWebDriver());
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
 
     // Attributes
     String quantityAttribute = "data-quantity";

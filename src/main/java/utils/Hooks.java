@@ -2,9 +2,10 @@ package utils;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
+import utils.androidUtils.DriverFactoryAndroid;
+import utils.webUtils.DriverFactoryWeb;
 
 import java.util.Properties;
 
@@ -17,7 +18,12 @@ public class Hooks {
     public void before() {
         String browser = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("browser");
         properties = ConfigReader.initProperties();
-        driver = DriverFactory.initAppDriver(browser);
+        if (browser.equals("Android")){
+            driver = DriverFactoryAndroid.initAppDriver(browser);
+        }
+        else if (browser.equals("Chrome")){
+            driver = DriverFactoryWeb.initWebDriver(browser);
+        }
     }
 
     @After

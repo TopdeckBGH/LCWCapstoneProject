@@ -4,19 +4,19 @@ import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.ElementHelper;
+import utils.webUtils.ElementHelperAndroid;
 
 public class WelcomePageAndroid {
 
     public WelcomePageAndroid(AppiumDriver appiumDriver) {
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
-        this.elementHelper = new ElementHelper(appiumDriver);
+        this.elementHelper = new ElementHelperAndroid(appiumDriver);
     }
 
     AppiumDriver appiumDriver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
 
     // Strings
     String welcomeText = "Hoş geldin";

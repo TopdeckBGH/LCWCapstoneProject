@@ -1,12 +1,12 @@
 package web.stepDefinitionsWeb;
 
 import io.cucumber.java.en.And;
-import utils.DriverFactory;
+import utils.webUtils.DriverFactoryWeb;
 import web.pagesWeb.ProductPageWeb;
 
 public class ProductStepsWeb {
 
-    ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactory.getWebDriver());
+    ProductPageWeb productPageWeb = new ProductPageWeb(DriverFactoryWeb.getWebDriver());
 
     @And("Click to \"M\" Button of \"Beden\" Label")
     public void clickMediumSizeButton() {

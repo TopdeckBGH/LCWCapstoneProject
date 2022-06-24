@@ -3,22 +3,22 @@ package web.pagesWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.DriverFactory;
-import utils.ElementHelper;
+import utils.webUtils.DriverFactoryWeb;
+import utils.webUtils.ElementHelperAndroid;
 
 public class ProductPageWeb {
 
     public ProductPageWeb(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        this.elementHelper = new ElementHelper(driver);
+        this.elementHelper = new ElementHelperAndroid(driver);
     }
 
     WebDriver driver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getWebDriver());
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
 
     // Strings
     public static String productTitle;

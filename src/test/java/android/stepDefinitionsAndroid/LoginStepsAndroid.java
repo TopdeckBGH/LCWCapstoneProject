@@ -4,13 +4,13 @@ import android.pagesAndroid.LoginPageAndroid;
 import android.pagesAndroid.TutorialPageAndroid;
 import android.pagesAndroid.WelcomePageAndroid;
 import io.cucumber.java.en.Given;
-import utils.DriverFactory;
+import utils.androidUtils.DriverFactoryAndroid;
 
 public class LoginStepsAndroid {
 
-    TutorialPageAndroid tutorialPageAndroid = new TutorialPageAndroid(DriverFactory.getAppDriver());
-    WelcomePageAndroid welcomePageAndroid = new WelcomePageAndroid(DriverFactory.getAppDriver());
-    LoginPageAndroid loginPageAndroid = new LoginPageAndroid(DriverFactory.getAppDriver());
+    TutorialPageAndroid tutorialPageAndroid = new TutorialPageAndroid(DriverFactoryAndroid.getAppDriver());
+    WelcomePageAndroid welcomePageAndroid = new WelcomePageAndroid(DriverFactoryAndroid.getAppDriver());
+    LoginPageAndroid loginPageAndroid = new LoginPageAndroid(DriverFactoryAndroid.getAppDriver());
 
     @Given("User Logged In Android App")
     public void loginToAndroidApp() {

@@ -3,11 +3,11 @@ package android.stepDefinitionsAndroid;
 import android.pagesAndroid.CategoriesPageAndroid;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import utils.DriverFactory;
+import utils.androidUtils.DriverFactoryAndroid;
 
 public class CategoriesStepsAndroid {
 
-    CategoriesPageAndroid categoriesPageAndroid = new CategoriesPageAndroid(DriverFactory.getAppDriver());
+    CategoriesPageAndroid categoriesPageAndroid = new CategoriesPageAndroid(DriverFactoryAndroid.getAppDriver());
 
     @Then("Check Categories Page")
     public void assertCategoriesPage() {

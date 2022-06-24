@@ -5,7 +5,7 @@ import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.ElementHelper;
+import utils.webUtils.ElementHelperAndroid;
 import utils.JSONHelper;
 
 public class LoginPageAndroid {
@@ -13,13 +13,13 @@ public class LoginPageAndroid {
     public LoginPageAndroid(AppiumDriver appiumDriver) {
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
-        this.elementHelper = new ElementHelper(appiumDriver);
+        this.elementHelper = new ElementHelperAndroid(appiumDriver);
         this.jsonHelper = new JSONHelper();
     }
 
     AppiumDriver appiumDriver;
     WebDriverWait wait;
-    ElementHelper elementHelper;
+    ElementHelperAndroid elementHelper;
     JSONHelper jsonHelper;
 
     // Strings
