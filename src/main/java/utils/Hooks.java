@@ -22,7 +22,7 @@ public class Hooks {
 
     @After
     public void after() {
-        driver.navigate().back();
+        driver.get("https://www.lcwaikiki.com/tr-TR/TR/sepetim");
         driver.findElement(By.cssSelector("i.fa-trash-o")).click();
         driver.findElement(By.cssSelector(".sc-delete")).click();
         driver.quit();

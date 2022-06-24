@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.DriverFactory;
 import utils.ElementHelper;
 
 public class CartPageWeb {
@@ -17,6 +18,8 @@ public class CartPageWeb {
     WebDriver driver;
     WebDriverWait wait;
     ElementHelper elementHelper;
+
+    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactory.getDriver());
 
     // Attributes
     String quantityAttribute = "data-quantity";
@@ -90,15 +93,15 @@ public class CartPageWeb {
     }
 
     public void checkProductTotalSumLabel() {
-        Assert.assertEquals(elementHelper.getText(productTotalSumLabel), totalSum);
+        Assert.assertEquals(elementHelper.getText(productTotalSumLabel), SearchResultPageWeb.price);
     }
 
     public void checkProductTotalSum() {
-        Assert.assertEquals(elementHelper.getText(productTotalSum), totalSum);
+        Assert.assertEquals(elementHelper.getText(productTotalSum),  SearchResultPageWeb.price);
     }
 
     public void checkSubTotalSumLabel() {
-        Assert.assertEquals(elementHelper.getText(productSubTotalSumLabel), subTotalSum);
+        Assert.assertEquals(elementHelper.getText(productSubTotalSumLabel),  SearchResultPageWeb.price);
 
     }
 

@@ -243,8 +243,13 @@ public class ElementHelper {
         action.moveByOffset(xOffset, yOffset).click().perform();
     }
 
-    public void assertTwoElementsText(By keyActual){
-
+    public boolean assertElementIsVisible(By key){
+        boolean result = true;
+        List<WebElement> elements = driver.findElements(key);
+        if (elements.size() == 0){
+            return result;
+        }
+        return result;
     }
 
 }

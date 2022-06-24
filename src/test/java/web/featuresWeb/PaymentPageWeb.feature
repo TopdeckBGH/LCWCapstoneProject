@@ -26,4 +26,13 @@ Feature: Web Payment Page
     And Check "GENEL TOPLAM" Label
     And Check Grand Total Sum
     When Click to "ÖDEME ADIMINA GEÇ" Button
-#    Then Check Payment Page
+    Then Check "Ürün Toplam" Label Payment Page
+    And Check Product Total Sum Payment Page
+    And Check DiscountsLabel Payment Page
+    And Check Discounts Payment Page
+    And Check "Ara Toplam" Label Payment Page
+    And Check Subtotal Sum Payment Page
+    And Check "Kargo Ücreti" Label Payment Page
+    And Check Shipment Fee Sum Payment Page
+    And Check "GENEL TOPLAM" Label Payment Page
+    And Check Grand Total Sum Payment Page
