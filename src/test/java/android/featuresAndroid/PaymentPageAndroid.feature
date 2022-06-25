@@ -15,10 +15,8 @@ Feature: Android Payment Page
     Then Check Colour Filter Page
     When Tap on "Siyah" Button
     And Tap on "UYGULA" Button
-#    Then Check Filtered Filter Page
-#    And Tap on "SONUÇLARI LİSTELE" Button
-#    Then Check Filtered Blouse Products Page
-#    When Tap on on the First Product
+    And Tap on "SONUÇLARI LİSTELE" Button
+    And Tap on on the First Product
 #    And Tap on the Up Arrow Button
 #    And Tap on "M" Button of Beden Label
 #    And Tap on "SEPETE EKLE" Button

@@ -24,6 +24,7 @@ public class FilterPageAndroid {
     // Elements
     By filterLabel = By.id("com.lcwaikiki.android:id/toolbarTitle");
     By colourButton = By.xpath("//android.widget.TextView[@text='Renk']");
+    By listFilterResultsButton = By.id("com.lcwaikiki.android:id/buttonFilter");
 
     // Methods
     public void checkFilterLabel() {
@@ -32,6 +33,10 @@ public class FilterPageAndroid {
 
     public void clickColourButton() {
         elementHelperAndroid.click(colourButton);
+    }
+
+    public void clickListerFilterResultsButton() {
+        elementHelperAndroid.click(listFilterResultsButton);
     }
 
 }

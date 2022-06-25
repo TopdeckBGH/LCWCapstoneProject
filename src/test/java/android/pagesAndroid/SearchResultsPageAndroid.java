@@ -24,6 +24,7 @@ public class SearchResultsPageAndroid {
     // Elements
     By blouseResultsLabel = By.id("com.lcwaikiki.android:id/toolbarTitle");
     By filterButton = By.id("com.lcwaikiki.android:id/filter_text");
+    By firstProductButton = By.xpath("//*[contains(@class,\"RecyclerView\")][2]/*[contains(@class,\"android.view.ViewGroup\")][1]");
 
     // Methods
     public void checkBlouseResultsLabel() {
@@ -32,5 +33,9 @@ public class SearchResultsPageAndroid {
 
     public void clickFilterButton() {
         elementHelperAndroid.click(filterButton);
+    }
+
+    public void clickFirstProductButton() {
+        elementHelperAndroid.click(firstProductButton);
     }
 }
