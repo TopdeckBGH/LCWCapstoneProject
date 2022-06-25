@@ -17,10 +17,10 @@ Feature: Android Payment Page
     And Tap on "UYGULA" Button
     And Tap on "SONUÇLARI LİSTELE" Button
     And Tap on on the First Product
-#    And Tap on the Up Arrow Button
-#    And Tap on "M" Button of Beden Label
-#    And Tap on "SEPETE EKLE" Button
-#    And Tap on "Sepete Git" Button
+    And Tap on the Up Arrow Button
+    And Tap on "M" Button of Beden Label
+    And Tap on "SEPETE EKLE" Button
+    And Tap on "Sepete Git" Button
 #    Then Check Cart Page
 #    And Check Product Name (Android)
 #    And Check Product Code (Android)
