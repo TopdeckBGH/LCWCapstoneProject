@@ -8,11 +8,11 @@ Feature: Android Payment Page
     Then Check Categories Page
     When Tap on "Giyim" Button
     And Tap on "Bluz" Button
-#    Then Check Blouse Products Page
-#    When Tap on "Filtre" Button
-#    Then Check Filter Page
-#    When Tap on "Renk" Button
-#    Then Check Colour Filter Page
+    Then Check Blouse Products Page
+    When Tap on "Filtre" Button
+    Then Check Filter Page
+    When Tap on "Renk" Button
+    Then Check Colour Filter Page
 #    When Tap on "Siyah" Button
 #    And Tap on "UYGULA" Button
 #    Then Check Filtered Filter Page
