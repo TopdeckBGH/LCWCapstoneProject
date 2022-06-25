@@ -21,7 +21,7 @@ public class SearchResultPageWeb {
     // Strings
     String blouseResults = "Bluz Modelleri";
     String blackColour = "Siyah";
-    String followingSiblingSpan = "\"//following-sibling::span";
+    String followingSiblingSpan = "//following-sibling::span";
 //    public static String noDiscountPrice;
 //    public static String discountedPrice;
 //    public static String cartDiscountedPrice;
@@ -31,23 +31,19 @@ public class SearchResultPageWeb {
     By blouseResultsLabel = By.cssSelector("div h1");
     By blackColourButton = By.xpath("//*[@class='color-filter-option__text' and contains(., 'Siyah')]");
     By blackColourFilterLabel = By.cssSelector("span.applied-filters__value");
-    //By firstSearchedProduct = By.cssSelector("div.product-card:nth-child(3)");
-    By thirdSearchedProduct = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [3]");
-    By productOldPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [3] //*[contains(@class, 'product-price__old-price')]");
-    By productDiscountedPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [3] //*[contains(@class, 'product-price__old-price')]" + followingSiblingSpan);
-    By productCartPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [3] //span[contains(@class, 'product-price__cart-price product-price__cart-price--bigger')]");
-    By productPriceNoDiscount = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [3] //span[contains(@class, 'product-price__price product-price__price--only product-price__price--bigger')]");
+    By firstSearchedProduct = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1]");
+    By productOldPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //*[contains(@class, 'product-price__old-price')]");
+    By productDiscountedPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //*[contains(@class, 'product-price__old-price')]" + followingSiblingSpan);
+    By productCartPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //span[contains(@class, 'product-price__cart-price product-price__cart-price--bigger')]");
+    By productPriceNoDiscount = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //span[contains(@class, 'product-price__price product-price__price--only')]");
 
     // Methods
     public String getDiscountTypeAndValue() {
-       // if (elementHelper.findElements(productOldPriceLabel) != null & elementHelper.findElements(productCartPriceLabel) == null){
-        //if ((elementHelper.findElements(productOldPriceLabel).size() > 0) & (elementHelper.findElements(productCartPriceLabel).size()) <= 0){
-        //if (Assert.assertNull(elementHelper.findElement(productOldPriceLabel)) & Assert.assertNull(elementHelper.findElements(productCartPriceLabel)){
-        if ((elementHelperWeb.assertElementIsVisible(productOldPriceLabel)) && (!elementHelperWeb.assertElementIsVisible(productCartPriceLabel))){
-            return price = elementHelperWeb.getText(productDiscountedPriceLabel);
-        }
-        else if (elementHelperWeb.assertElementIsVisible(productOldPriceLabel) & elementHelperWeb.assertElementIsVisible(productCartPriceLabel)){
+        if (elementHelperWeb.assertElementIsVisible(productOldPriceLabel) && elementHelperWeb.assertElementIsVisible(productCartPriceLabel)){
             return price = elementHelperWeb.getText((productCartPriceLabel));
+        }
+        else if ((elementHelperWeb.assertElementIsVisible(productOldPriceLabel)) && (!elementHelperWeb.assertElementIsVisible(productCartPriceLabel))){
+            return price = elementHelperWeb.getText(productDiscountedPriceLabel);
         }
         else {
             return price = elementHelperWeb.getText(productPriceNoDiscount);
@@ -68,7 +64,7 @@ public class SearchResultPageWeb {
 
     public void clickFirstProduct() {
         getDiscountTypeAndValue();
-        elementHelperWeb.click(thirdSearchedProduct);
+        elementHelperWeb.click(firstSearchedProduct);
     }
 
 

@@ -3,7 +3,7 @@ Feature: Web Payment Page
 
   @Web @PaymentPage
   Scenario: Check Payment Page
-    Given User Logged In
+#    Given User Logged In
     When Hover to "KADIN" Button
     And Click to "Bluz" Button of "GİYİM" Category
     Then Check Blouse Results Label
