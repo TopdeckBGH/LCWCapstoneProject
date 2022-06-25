@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import utils.PriceLabels;
 import utils.webUtils.ElementHelperWeb;
+
+import java.util.concurrent.TimeUnit;
 
 public class SearchResultPageWeb {
 
@@ -21,32 +24,52 @@ public class SearchResultPageWeb {
     // Strings
     String blouseResults = "Bluz Modelleri";
     String blackColour = "Siyah";
-    String followingSiblingSpan = "//following-sibling::span";
-//    public static String noDiscountPrice;
-//    public static String discountedPrice;
-//    public static String cartDiscountedPrice;
     public static String price;
+
+    // ints
+    public static int productNumber = 1;
 
     // Elements
     By blouseResultsLabel = By.cssSelector("div h1");
     By blackColourButton = By.xpath("//*[@class='color-filter-option__text' and contains(., 'Siyah')]");
     By blackColourFilterLabel = By.cssSelector("span.applied-filters__value");
-    By firstSearchedProduct = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1]");
-    By productOldPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //*[contains(@class, 'product-price__old-price')]");
-    By productDiscountedPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //*[contains(@class, 'product-price__old-price')]" + followingSiblingSpan);
-    By productCartPriceLabel = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //span[contains(@class, 'product-price__cart-price product-price__cart-price--bigger')]");
-    By productPriceNoDiscount = By.xpath("//*[contains(@class, \"product-card product-card--one-of-\")] [1] //span[contains(@class, 'product-price__price product-price__price--only')]");
+
+    String searchProducts = "//*[contains(@class, \"product-card product-card--one-of-\")]";
+    String oldPriceLabelPart = "//*[contains(@class, 'product-price__old-price')]";
+    String discountedPriceLabelPart = "//*[contains(@class, 'product-price__old-price')]";
+    String cartPriceLabelPart = "//span[contains(@class, 'product-price__cart-price product-price__cart-price--bigger')]";
+    String noDiscountLabelPart = "//span[contains(@class, 'product-price__price product-price__price--only')]";
+
+
 
     // Methods
-    public String getDiscountTypeAndValue() {
-        if (elementHelperWeb.assertElementIsVisible(productOldPriceLabel) && elementHelperWeb.assertElementIsVisible(productCartPriceLabel)){
-            return price = elementHelperWeb.getText((productCartPriceLabel));
+    public By elementUpdater(PriceLabels priceLabels, int productNumber)  {
+        switch (priceLabels) {
+            case Element:
+                return By.xpath(searchProducts + "[" + productNumber + "]");
+            case OldPrice:
+                return By.xpath(searchProducts + "[" + productNumber + "]" + oldPriceLabelPart);
+            case DiscountedPrice:
+                return By.xpath(searchProducts + "[" + productNumber + "]" + discountedPriceLabelPart);
+            case CartPrice:
+                return By.xpath(searchProducts + "[" + productNumber + "]"  + cartPriceLabelPart);
+            case NoDiscountPrice:
+                return By.xpath(searchProducts + "[" + productNumber + "]" + noDiscountLabelPart);
+            default:
+                return null;
         }
-        else if ((elementHelperWeb.assertElementIsVisible(productOldPriceLabel)) && (!elementHelperWeb.assertElementIsVisible(productCartPriceLabel))){
-            return price = elementHelperWeb.getText(productDiscountedPriceLabel);
+    }
+
+    public String getDiscountTypeAndValue() {
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        if (elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.OldPrice, productNumber)) && elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber))){
+            return price = elementHelperWeb.getText((elementUpdater(PriceLabels.CartPrice, productNumber)));
+        }
+        else if ((elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.OldPrice, productNumber))) && (!elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber)))){
+            return price = elementHelperWeb.getText(elementUpdater(PriceLabels.DiscountedPrice, productNumber));
         }
         else {
-            return price = elementHelperWeb.getText(productPriceNoDiscount);
+            return price = elementHelperWeb.getText(elementUpdater(PriceLabels.NoDiscountPrice, productNumber));
         }
     }
 
@@ -64,8 +87,10 @@ public class SearchResultPageWeb {
 
     public void clickFirstProduct() {
         getDiscountTypeAndValue();
-        elementHelperWeb.click(firstSearchedProduct);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        elementHelperWeb.click(elementUpdater(PriceLabels.Element, productNumber));
     }
+
 
 
 }

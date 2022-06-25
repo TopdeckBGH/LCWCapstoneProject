@@ -31,13 +31,20 @@ public class ProductPageWeb {
     By myCartButton = By.id("shopping-cart");
     By productTitleLabel = By.cssSelector("div.row div.product-title");
     By noSizeMAlert = By.cssSelector("div.product-detail a[size=\"M\"][data-stock=\"0\"]");
-    By noSizeAlert = By.cssSelector("div.product-detail [data-stock=\"0\"]");
+    By noMOptionAlert = By.cssSelector("div.product-detail a[size=\"M\"]");
+    By noSizeAlert = By.cssSelector("div.top.evam-first-screen-click");
 
 
     // Methods
     public void clickMSizeButton() {
-        //If one or more sizes are out of stock, the page prevents clicking on items except those sizes. That is why this methods is here.
-        elementHelperWeb.clickToLocation(0, 0);
+        if (elementHelperWeb.assertElementIsVisible(noSizeAlert)) {
+            elementHelperWeb.clickToLocation(0, 0);
+        }
+        while (elementHelperWeb.assertElementIsVisible(noSizeMAlert)) {
+            driver.navigate().back();
+            SearchResultPageWeb.productNumber++;
+            searchResultPageWeb.clickFirstProduct();
+        }
         elementHelperWeb.click(mediumSizeButton);
     }
 

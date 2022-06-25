@@ -18,8 +18,10 @@ public class SearchResultsPageAndroid {
     WebDriverWait wait;
     ElementHelperAndroid elementHelperAndroid;
 
+
     // Strings
     String blouseResults = "Bluz";
+
 
     // Elements
     By blouseResultsLabel = By.id("com.lcwaikiki.android:id/toolbarTitle");
