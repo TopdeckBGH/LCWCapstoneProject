@@ -13,8 +13,8 @@ Feature: Android Payment Page
     Then Check Filter Page
     When Tap on "Renk" Button
     Then Check Colour Filter Page
-#    When Tap on "Siyah" Button
-#    And Tap on "UYGULA" Button
+    When Tap on "Siyah" Button
+    And Tap on "UYGULA" Button
 #    Then Check Filtered Filter Page
 #    And Tap on "SONUÇLARI LİSTELE" Button
 #    Then Check Filtered Blouse Products Page

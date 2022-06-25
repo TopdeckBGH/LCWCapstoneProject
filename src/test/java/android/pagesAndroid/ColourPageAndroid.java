@@ -23,10 +23,21 @@ public class ColourPageAndroid {
 
     // Elements
     By colourFilterLabel = By.id("com.lcwaikiki.android:id/toolbarTitle") ;
+    By blackColourFilterButton = By.xpath("//android.widget.TextView[@text='Siyah']");
+    By applyButton = By.xpath("//android.widget.TextView[@text='UYGULA']");
 
     // Methods
     public void checkColourFilterLabel() {
         Assert.assertEquals(elementHelperAndroid.getText(colourFilterLabel), colourFilter);
+    }
+
+    public void clickBlackColourFilterButton() {
+        elementHelperAndroid.dragAndDropElement(500, 500, 0, 0);
+        elementHelperAndroid.click(blackColourFilterButton);
+    }
+
+    public void clickApplyButton () {
+        elementHelperAndroid.click(applyButton);
     }
 
 }
