@@ -29,6 +29,9 @@ public class SearchResultPageWeb {
     // ints
     public static int productNumber = 1;
 
+    // enums
+    PriceLabels priceLabels;
+
     // Elements
     By blouseResultsLabel = By.cssSelector("div h1");
     By blackColourButton = By.xpath("//*[@class='color-filter-option__text' and contains(., 'Siyah')]");
@@ -63,12 +66,15 @@ public class SearchResultPageWeb {
     public String getDiscountTypeAndValue() {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         if (elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.OldPrice, productNumber)) && elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber))){
+            priceLabels = PriceLabels.CartPrice;
             return price = elementHelperWeb.getText((elementUpdater(PriceLabels.CartPrice, productNumber)));
         }
         else if ((elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.OldPrice, productNumber))) && (!elementHelperWeb.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber)))){
+            priceLabels = PriceLabels.DiscountedPrice;
             return price = elementHelperWeb.getText(elementUpdater(PriceLabels.DiscountedPrice, productNumber));
         }
         else {
+            priceLabels = PriceLabels.NoDiscountPrice;
             return price = elementHelperWeb.getText(elementUpdater(PriceLabels.NoDiscountPrice, productNumber));
         }
     }

@@ -20,8 +20,6 @@ public class PaymentPageWeb {
     WebDriverWait wait;
     ElementHelperWeb elementHelperWeb;
 
-    CartPageWeb cartPageWeb = new CartPageWeb(DriverFactoryWeb.getWebDriver());
-
     // Strings
     String productTotal = "ÜRÜN TOPLAM";
     String subTotal = "ARA TOPLAM";
@@ -30,10 +28,10 @@ public class PaymentPageWeb {
 
     // Elements
     By productTotalSumLabel = By.cssSelector("p.total :first-child");
-    By productTotalSum = By.cssSelector("p.total :last-child");
+    By productTotalSum = By.cssSelector("p.total span[id]");
     By discountsLabel = By.cssSelector("p.OrderSummaryDiscount strong");
     By discounts = By.id("spanShoppingCartDiscounts");
-    By subTotalSumLabel = By.xpath("//p[@class='subtotal' and contains(., 'ARA')]");
+    By subTotalSumLabel = By.xpath("//p[@class=\"subtotal\"][1]");
     By subTotalSum = By.cssSelector("p.subtotal span[id=\"spanShoppingCartSubtotal\"]");
     By shipmentFeeLabel = By.cssSelector("p.price strong");
     By shipmentFee = By.cssSelector("span.spanShoppingCartShippingPrice");
@@ -50,7 +48,7 @@ public class PaymentPageWeb {
     }
 
     public void checkSubTotalSumLabel(){
-        Assert.assertEquals(elementHelperWeb.getText(subTotalSumLabel), subTotal);
+        Assert.assertTrue(elementHelperWeb.getText(subTotalSumLabel).contains(subTotal));
     }
 
     public void checkSubTotalSum() {
@@ -58,15 +56,15 @@ public class PaymentPageWeb {
     }
 
     public void checkShipmentFeeLabel() {
-        Assert.assertEquals(elementHelperWeb.getText(shipmentFeeLabel), shipment);
+        Assert.assertTrue(elementHelperWeb.getText(shipmentFeeLabel).contains(shipment));
     }
 
     public void checkShipmentFee() {
-        Assert.assertEquals(elementHelperWeb.getText(shipmentFee), "BEDAVA");
+        Assert.assertEquals(elementHelperWeb.getText(shipmentFee), CartPageWeb.shipment);
     }
 
     public void checkGrandTotalSumLabel() {
-        Assert.assertEquals(elementHelperWeb.getText(grandTotalSumLabel), grandTotal);
+        Assert.assertTrue(elementHelperWeb.getText(grandTotalSumLabel).contains(grandTotal));
     }
 
     public void checkGrandTotalSum() {

@@ -19,8 +19,6 @@ public class CartPageWeb {
     WebDriverWait wait;
     ElementHelperWeb elementHelperWeb;
 
-    SearchResultPageWeb searchResultPageWeb = new SearchResultPageWeb(DriverFactoryWeb.getWebDriver());
-
     // Attributes
     String quantityAttribute = "data-quantity";
 
@@ -32,6 +30,7 @@ public class CartPageWeb {
     String subTotalSum = "Ara Toplam";
     String shipmentFee = "Kargo Ücreti";
     String grandTotal = "GENEL TOPLAM";
+    static String shipment;
 
     // Elements
 //region myCart
@@ -53,7 +52,6 @@ public class CartPageWeb {
     By grandTotalSum = By.xpath(priceInfoAreaSumHelper(grandTotal));
 
     // Strings
-   // String shipment = elementHelperWeb.getText(shipmentFeeSum);
 //endregion
 
 
@@ -105,7 +103,6 @@ public class CartPageWeb {
 
     public void checkSubTotalSumLabel() {
         Assert.assertEquals(elementHelperWeb.getText(productSubTotalSumLabel),  subTotalSum);
-
     }
 
     public void checkSubTotalSum() {
@@ -113,6 +110,7 @@ public class CartPageWeb {
     }
 
     public void checkShipmentFeeLabel() {
+        shipment = elementHelperWeb.getText(shipmentFeeSum);
         Assert.assertEquals(elementHelperWeb.getText(shipmentFeeLabel), shipmentFee);
     }
 
