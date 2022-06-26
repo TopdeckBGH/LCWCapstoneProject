@@ -41,10 +41,10 @@ public class Hooks {
         }
         else if (applicationTypes == (ApplicationTypes.Web) &&
                 ((driver.findElements(cartItem).size() > 0)  ||
-                        driver.findElements(orderSummaryInfo).size() > 0)){
-            driver.get("https://www.lcwaikiki.com/tr-TR/TR/sepetim");
-            driver.findElement(By.cssSelector("i.fa-trash-o")).click();
-            driver.findElement(By.cssSelector(".sc-delete")).click();
+                  driver.findElements(orderSummaryInfo).size() > 0)){
+                      driver.get("https://www.lcwaikiki.com/tr-TR/TR/sepetim");
+                      driver.findElement(By.cssSelector("i.fa-trash-o")).click();
+                      driver.findElement(By.cssSelector(".sc-delete")).click();
         }
         driver.quit();
     }
