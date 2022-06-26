@@ -36,6 +36,7 @@ public class SearchResultsPageAndroid {
     By blouseResultsLabel = By.id("com.lcwaikiki.android:id/toolbarTitle");
     By filterButton = By.id("com.lcwaikiki.android:id/filter_text");
 
+    // Methods
     public String getDiscountType() {
         appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         if (elementHelperAndroid.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber))){

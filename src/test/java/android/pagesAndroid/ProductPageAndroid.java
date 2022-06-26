@@ -3,7 +3,10 @@ package android.pagesAndroid;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.androidUtils.DriverFactoryAndroid;
 import utils.androidUtils.ElementHelperAndroid;
+
+import java.util.concurrent.TimeUnit;
 
 public class ProductPageAndroid {
 
@@ -17,6 +20,8 @@ public class ProductPageAndroid {
     WebDriverWait wait;
     ElementHelperAndroid elementHelperAndroid;
 
+    SearchResultsPageAndroid searchResultsPageAndroid = new SearchResultsPageAndroid(DriverFactoryAndroid.getAppDriver());
+
     // Strings
 
     // Elements
@@ -24,6 +29,10 @@ public class ProductPageAndroid {
     By sizeMButton = By.xpath("//android.widget.TextView[@text='M']");
     By addToCartButton = By.id("com.lcwaikiki.android:id/basket");
     By goToCartButton = By.xpath("//android.widget.TextView[@text='Sepete Git']");
+    By noStockM = By.xpath("//android.widget.FrameLayout[@content-desc='Tükendi'] //*[@text= 'M']");
+
+
+
 
     // Methods
     public void clickUpArrowButton() {
@@ -31,7 +40,15 @@ public class ProductPageAndroid {
     }
 
     public void clickSizeMButton() {
+        appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        while (elementHelperAndroid.assertElementIsVisible(noStockM)){
+            appiumDriver.navigate().back();
+            SearchResultsPageAndroid.productNumber++;
+            searchResultsPageAndroid.clickFirstProductButton();
+        }
         elementHelperAndroid.click(sizeMButton);
+        appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     public void clickAddToCartButton() {
