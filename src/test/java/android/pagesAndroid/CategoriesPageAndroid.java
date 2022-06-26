@@ -15,7 +15,6 @@ import java.time.Duration;
 public class CategoriesPageAndroid {
 
     public CategoriesPageAndroid(AppiumDriver appiumDriver) {
-        //this.driver = appiumDriver;
         this.appiumDriver = appiumDriver;
         this.wait = new WebDriverWait(appiumDriver, 10);
         this.elementHelperAndroid = new ElementHelperAndroid(appiumDriver);
