@@ -21,16 +21,17 @@ Feature: Android Payment Page
     And Tap on "M" Button of Beden Label
     And Tap on "SEPETE EKLE" Button
     And Tap on "Sepete Git" Button
-#    Then Check Cart Page
-#    And Check Product Name (Android)
-#    And Check Product Code (Android)
-#    And Check Product Size Label (Android)
-#    And Check Product Size (Android)
-#    And Check Product Colour Label (Android)
-#    And Check Product Colour (Android)
-#    And Check Product Count Label (Android)
-#    And Check Product Count (Android)
-#    And Check "Sipariş Özeti" Label
+    Then Check Cart Page
+    And Check Product Name (Android)
+    And Check Product Code (Android)
+    And Check Product Size Label (Android)
+    And Check Product Size (Android)
+    And Check Product Colour Label (Android)
+    And Check Product Colour (Android)
+    And Check Item Count Label (Android)
+    And Check Item Count (Android)
+    And Check Product Item Price (Android)
+    And Check "Sipariş Özeti" Label
 #    When Tap on the Options Button
 #    Then Check "Ürün Toplam" Label (Android)
 #    And Check Product Total Sum (Android)
