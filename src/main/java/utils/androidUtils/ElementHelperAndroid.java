@@ -254,12 +254,11 @@ public class ElementHelperAndroid {
     }
 
     public boolean assertElementIsVisible(By key){
-        boolean result = true;
         List<WebElement> elements = driver.findElements(key);
         if (elements.size() == 0){
-            return result;
+            return false;
         }
-        return result;
+        return true;
     }
 
     public void dragAndDropElement(int firstX, int firstY, int lastX, int lastY) {

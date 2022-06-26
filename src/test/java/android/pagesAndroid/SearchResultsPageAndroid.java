@@ -21,7 +21,11 @@ public class SearchResultsPageAndroid {
     WebDriverWait wait;
     ElementHelperAndroid elementHelperAndroid;
 
+    // ints
     public static int productNumber = 1;
+
+    // enums
+    public static PriceLabels priceLabels;
 
     // Strings
     String blouseResults = "Bluz";
@@ -29,7 +33,7 @@ public class SearchResultsPageAndroid {
     String inCart = "//android.widget.TextView[@text='Sepette']";
     String discount = "//android.widget.TextView[@text='İndirim']";
     String discountPrice = "//android.widget.TextView[contains(@resource-id,\"DiscountPrice\")]";
-    String noDiscountPrice = "//android.widget.TextView[contains(@resource-id,\"product_Price\")]";
+    String noDiscountPrice = "//android.widget.TextView[contains(@resource-id,\"product_price\")]";
     public static String price;
 
     // Elements
@@ -40,13 +44,16 @@ public class SearchResultsPageAndroid {
     public String getDiscountType() {
         appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         if (elementHelperAndroid.assertElementIsVisible(elementUpdater(PriceLabels.CartPrice, productNumber))){
+            priceLabels = PriceLabels.CartPrice;
             return price = elementHelperAndroid.getText(By.xpath(product + productNumber + "]" + discountPrice));
         }
         else if (elementHelperAndroid.assertElementIsVisible(elementUpdater(PriceLabels.DiscountedPrice, productNumber))) {
+            priceLabels = PriceLabels.DiscountedPrice;
             return price = elementHelperAndroid.getText(By.xpath(product + productNumber + "]" + discountPrice));
         }
         else{
-            return price = elementHelperAndroid.getText(By.xpath(product + productNumber + "[" + noDiscountPrice));
+            priceLabels = PriceLabels.NoDiscountPrice;
+            return price = elementHelperAndroid.getText(By.xpath(product + productNumber + "]" + noDiscountPrice));
         }
     }
 
@@ -72,6 +79,9 @@ public class SearchResultsPageAndroid {
     }
 
     public void clickFirstProductButton() {
+        if ((productNumber > 2) && (productNumber % 2 > 0)){
+            elementHelperAndroid.dragAndDropElement(1000, 1000, 0, 0);
+        }
         getDiscountType();
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         elementHelperAndroid.click(elementUpdater(PriceLabels.Element, productNumber));

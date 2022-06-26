@@ -30,9 +30,9 @@ public class ProductPageAndroid {
     By addToCartButton = By.id("com.lcwaikiki.android:id/basket");
     By goToCartButton = By.xpath("//android.widget.TextView[@text='Sepete Git']");
     By noStockM = By.xpath("//android.widget.FrameLayout[@content-desc='Tükendi'] //*[@text= 'M']");
-
-
-
+    By noMoreItemLabel = By.id("com.lcwaikiki.android:id/dialogDescription");
+    By okButton = By.id("com.lcwaikiki.android:id/completeButton");
+    By closeButton = By.id("com.lcwaikiki.android:id/productClose");
 
     // Methods
     public void clickUpArrowButton() {
@@ -56,7 +56,15 @@ public class ProductPageAndroid {
     }
 
     public void clickGoToCartButton() {
-        elementHelperAndroid.click(goToCartButton);
+        if(elementHelperAndroid.assertElementIsVisible(goToCartButton)){
+            elementHelperAndroid.click(goToCartButton);
+        }
+        else if (elementHelperAndroid.assertElementIsVisible(noMoreItemLabel)){
+            elementHelperAndroid.click(okButton);
+            elementHelperAndroid.click(closeButton);
+            SearchResultsPageAndroid.productNumber++;
+            searchResultsPageAndroid.clickFirstProductButton();
+        }
     }
 
 

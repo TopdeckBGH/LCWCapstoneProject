@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import utils.webUtils.DriverFactoryWeb;
 
 @CucumberOptions(
-        features = {"src/test/java/web/featuresWeb"},
-        glue = {"web/stepDefinitionsWeb", "utils"},
-        tags = "@Web",
+        features = {"src/test/java/android/featuresAndroid"},
+        glue = {"android/stepDefinitionsAndroid", "utils"},
+        tags = "@Android",
         plugin = {"summary", "pretty", "html:Reports/CucumberReport/Reports.html",
                 "json:Reports/CucumberReport/Report",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
