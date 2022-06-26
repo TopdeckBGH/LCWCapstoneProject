@@ -25,8 +25,6 @@ public class ProductPageWeb {
     // Strings
     public static String productTitle;
 
-    public int productOrder = 2;
-
     // Elements
     By mediumSizeButton = By.cssSelector("div.pt-5 div.option-size a[size=\"M\"]");
     By addToCartButton = By.cssSelector("[data-tracking-label=\"SepeteEkle\"]");

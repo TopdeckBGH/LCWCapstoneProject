@@ -21,9 +21,7 @@ public class PaymentStepsWeb {
 //    @And("Check DiscountsLabel Payment Page")
 //    @And("Check Discounts Payment Page")
     @And("Check \"Ara Toplam\" Label Payment Page")
-    public void assertSubTotalSumLabel() {
-        paymentPageWeb.checkSubTotalSumLabel();
-    }
+    public void assertSubTotalSumLabel() {paymentPageWeb.checkSubTotalSumLabel();}
 
     @And("Check Subtotal Sum Payment Page")
     public void assertSubTotalSum() {
