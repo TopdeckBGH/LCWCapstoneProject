@@ -93,7 +93,7 @@ public class CartPageWeb {
     }
 
     public void checkProductTotalSumLabel() {
-        Assert.assertEquals(elementHelperWeb.getText(productTotalSumLabel), SearchResultPageWeb.price);
+        Assert.assertEquals(elementHelperWeb.getText(productTotalSumLabel), totalSum);
     }
 
     public void checkProductTotalSum() {
@@ -101,20 +101,16 @@ public class CartPageWeb {
     }
 
     public void checkSubTotalSumLabel() {
-        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSumLabel),  SearchResultPageWeb.price);
+        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSumLabel),  subTotalSum);
 
     }
 
     public void checkSubTotalSum() {
-        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSum), subTotalSum);
+        Assert.assertEquals(elementHelperWeb.getText(productSubTotalSum), SearchResultPageWeb.price);
     }
 
     public void checkShipmentFeeLabel() {
         Assert.assertEquals(elementHelperWeb.getText(shipmentFeeLabel), shipmentFee);
-    }
-
-    public void checkShipmentFee() {
-        Assert.assertEquals(elementHelperWeb.getText(shipmentFeeSum), shipmentFee);
     }
 
     public void checkGrandTotalSumLabel() {
@@ -122,6 +118,6 @@ public class CartPageWeb {
     }
 
     public void checkGrandTotalSum() {
-        Assert.assertEquals(elementHelperWeb.getText(grandTotalSum), grandTotal);
+        Assert.assertEquals(elementHelperWeb.getText(grandTotalSum), SearchResultPageWeb.price);
     }
 }

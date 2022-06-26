@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.webUtils.DriverFactoryWeb;
 import utils.webUtils.ElementHelperWeb;
 
+import java.util.concurrent.TimeUnit;
+
 public class ProductPageWeb {
 
     public ProductPageWeb(WebDriver driver) {
@@ -37,6 +39,7 @@ public class ProductPageWeb {
 
     // Methods
     public void clickMSizeButton() {
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         if (elementHelperWeb.assertElementIsVisible(noSizeAlert)) {
             elementHelperWeb.clickToLocation(0, 0);
         }
@@ -46,6 +49,7 @@ public class ProductPageWeb {
             searchResultPageWeb.clickFirstProduct();
         }
         elementHelperWeb.click(mediumSizeButton);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void clickAddToCart() {

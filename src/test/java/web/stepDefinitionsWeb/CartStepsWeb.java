@@ -49,14 +49,10 @@ public class CartStepsWeb {
     public void assertSubTotal() {
         cartPageWeb.checkSubTotalSum();
     }
+
     @And("Check \"Kargo Ücreti\" Label")
     public void assertShipmentFeeLabel() {
         cartPageWeb.checkShipmentFeeLabel();
-    }
-
-    @And("Check Shipment Fee Sum")
-    public void assertShipmentFee() {
-        cartPageWeb.checkShipmentFee();
     }
 
     @And("Check \"GENEL TOPLAM\" Label")

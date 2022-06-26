@@ -3,7 +3,7 @@ Feature: Web Payment Page
 
   @Web @PaymentPage
   Scenario: Check Payment Page
-#    Given User Logged In
+    Given User Logged In
     When Hover to "KADIN" Button
     And Click to "Bluz" Button of "GİYİM" Category
     Then Check Blouse Results Label
@@ -22,7 +22,6 @@ Feature: Web Payment Page
     And Check "Ara Toplam" Label
     And Check Subtotal Sum
     And Check "Kargo Ücreti" Label
-    And Check Shipment Fee Sum
     And Check "GENEL TOPLAM" Label
     And Check Grand Total Sum
     When Click to "ÖDEME ADIMINA GEÇ" Button
