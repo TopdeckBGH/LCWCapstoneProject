@@ -53,6 +53,7 @@ public class CartPageAndroid {
     By goToPaymentPage = By.id("com.lcwaikiki.android:id/tv_go_checkout");
 
     // Methods
+
     public void checkCartPage() {
         Assert.assertTrue(elementHelperAndroid.getText(cartPageTitle).contains(myCartPage));
     }
