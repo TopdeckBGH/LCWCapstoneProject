@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 import utils.androidUtils.DriverFactoryAndroid;
+import utils.enums.ApplicationTypes;
 import utils.webUtils.DriverFactoryWeb;
 
 import java.util.Properties;
