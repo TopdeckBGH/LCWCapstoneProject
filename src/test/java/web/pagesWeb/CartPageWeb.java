@@ -51,6 +51,9 @@ public class CartPageWeb {
     By shipmentFeeSum = By.xpath(priceInfoAreaSumHelper(shipmentFee));
     By grandTotalSumLabel = By.xpath(priceInfoAreaLabelHelper(grandTotal));
     By grandTotalSum = By.xpath(priceInfoAreaSumHelper(grandTotal));
+
+    // Strings
+   // String shipment = elementHelperWeb.getText(shipmentFeeSum);
 //endregion
 
 

@@ -27,8 +27,8 @@ Feature: Web Payment Page
     When Click to "ÖDEME ADIMINA GEÇ" Button
     Then Check "Ürün Toplam" Label Payment Page
     And Check Product Total Sum Payment Page
-    And Check DiscountsLabel Payment Page
-    And Check Discounts Payment Page
+#    And Check DiscountsLabel Payment Page
+#    And Check Discounts Payment Page
     And Check "Ara Toplam" Label Payment Page
     And Check Subtotal Sum Payment Page
     And Check "Kargo Ücreti" Label Payment Page
