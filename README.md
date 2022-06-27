@@ -13,7 +13,8 @@ For Android Run: src/test/resources/testSuites/AndroidTestSuites.xml
 For Chomre Run : src/test/resources/testSuites/WebTestSuites.xml
 
 There is the second part of the project: Writing Test Cases for "Successful Register" and "UnSuccessful Register".
-For the xsl: src/test/resources/testCases
+For the xsl: https://bun.filedit.ch/tUXEqsrTICqWYhLZkSjP.xlsx
+
 
 Java used in this project also used LC Waikiki Android apk is present in: src/test/resources/apk
 
