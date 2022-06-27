@@ -34,6 +34,8 @@ public class SearchResultsPageAndroid {
     String discount = "//android.widget.TextView[@text='İndirim']";
     String discountPrice = "//android.widget.TextView[contains(@resource-id,\"DiscountPrice\")]";
     String noDiscountPrice = "//android.widget.TextView[contains(@resource-id,\"product_price\")]";
+    String productPrice = "//android.widget.TextView[@resource-id=\"com.lcwaikiki.android:id/product_description\"]";
+    public static String itemTitle;
     public static String price;
 
     // Elements
@@ -65,6 +67,8 @@ public class SearchResultsPageAndroid {
                 return By.xpath(product + productNumber + "]" + inCart);
             case DiscountedPrice:
                 return By.xpath(product + productNumber + "]" + discount);
+            case Title:
+                return By.xpath(product + productNumber + "]" + productPrice);
             default:
                 return  null;
         }
@@ -83,6 +87,7 @@ public class SearchResultsPageAndroid {
             elementHelperAndroid.dragAndDropElement(1000, 1000, 0, 0);
         }
         getDiscountType();
+        itemTitle = elementHelperAndroid.getText(elementUpdater(PriceLabels.Title, productNumber));
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         elementHelperAndroid.click(elementUpdater(PriceLabels.Element, productNumber));
     }

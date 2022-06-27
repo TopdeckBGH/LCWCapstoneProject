@@ -3,6 +3,7 @@ package android.pagesAndroid;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import utils.androidUtils.DriverFactoryAndroid;
 import utils.androidUtils.ElementHelperAndroid;
 
@@ -23,6 +24,9 @@ public class ProductPageAndroid {
     SearchResultsPageAndroid searchResultsPageAndroid = new SearchResultsPageAndroid(DriverFactoryAndroid.getAppDriver());
 
     // Strings
+    String blouse = "Bluz";
+    public static String productItemCode;
+    public static String productItemTitle;
 
     // Elements
     By upArrowButton = By.id("com.lcwaikiki.android:id/scrollImage");
@@ -33,6 +37,10 @@ public class ProductPageAndroid {
     By noMoreItemLabel = By.id("com.lcwaikiki.android:id/dialogDescription");
     By okButton = By.id("com.lcwaikiki.android:id/completeButton");
     By closeButton = By.id("com.lcwaikiki.android:id/productClose");
+    By itemPrice = By.id("com.lcwaikiki.android:id/price");
+    By itemCode = By.id("com.lcwaikiki.android:id/modelCode");
+    By itemTitle = By.id("com.lcwaikiki.android:id/productTitleText");
+
 
     // Methods
     public void clickUpArrowButton() {
@@ -48,7 +56,15 @@ public class ProductPageAndroid {
         }
         elementHelperAndroid.click(sizeMButton);
         appiumDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
 
+    public void checkItemName(){
+        productItemCode = elementHelperAndroid.getText(itemCode);
+        productItemTitle = elementHelperAndroid.getText(itemTitle);
+        Assert.assertTrue(productItemTitle.contains(blouse));
+    }
+    public void checkItemPrice(){
+        Assert.assertEquals(elementHelperAndroid.getText(itemPrice), SearchResultsPageAndroid.price);
     }
 
     public void clickAddToCartButton() {
@@ -64,6 +80,10 @@ public class ProductPageAndroid {
             elementHelperAndroid.click(closeButton);
             SearchResultsPageAndroid.productNumber++;
             searchResultsPageAndroid.clickFirstProductButton();
+            clickUpArrowButton();
+            clickSizeMButton();
+            clickAddToCartButton();
+            clickGoToCartButton();
         }
     }
 

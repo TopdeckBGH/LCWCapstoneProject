@@ -2,6 +2,8 @@ package android.stepDefinitionsAndroid;
 
 import android.pagesAndroid.ProductPageAndroid;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import utils.androidUtils.DriverFactoryAndroid;
 
 public class ProductStepsAndroid {
@@ -18,7 +20,16 @@ public class ProductStepsAndroid {
         productPageAndroid.clickSizeMButton();
     }
 
-    @And("Tap on \"SEPETE EKLE\" Button")
+    @Then("Check Item Name")
+    public void assertItemName() {
+        productPageAndroid.checkItemName();
+    }
+    @And("Check Item Price")
+    public void assertItemPrice() {
+        productPageAndroid.checkItemPrice();
+    }
+
+    @When("Tap on \"SEPETE EKLE\" Button")
     public void tapAddToCartButton() {
         productPageAndroid.clickAddToCartButton();
     }

@@ -20,11 +20,14 @@ public class CartPageAndroid {
     AppiumDriver appiumDriver;
 
     // Strings
-    String myCartPage = "Sepetim;";
-    String size = "Beden";
-    String colour = "Renk";
-    String count = "Adet";
+    String myCartPage = "Sepetim";
+    String size = "Beden:";
+    String colour = "Renk:";
+    String count = "Adet:";
     String orderSummary = "SİPARİŞ ÖZETİ";
+    String blackColour = "Siyah";
+    String productCount = "1";
+    String itemSize = "M";
 
     // Elements
     By cartPageTitle = By.id("com.lcwaikiki.android:id/toolbarTitle");
@@ -59,11 +62,11 @@ public class CartPageAndroid {
     }
 
     public void checkProductName() {
-        Assert.assertEquals(elementHelperAndroid.getText(productItemTitle),"ads");
+        Assert.assertEquals(elementHelperAndroid.getText(productItemTitle), ProductPageAndroid.productItemTitle);
     }
 
     public void checkProductCode() {
-        Assert.assertEquals(elementHelperAndroid.getText(productItemCode), "asd");
+        Assert.assertEquals(elementHelperAndroid.getText(productItemCode), ProductPageAndroid.productItemCode);
     }
 
     public void checkProductSizeLabel() {
@@ -71,7 +74,7 @@ public class CartPageAndroid {
     }
 
     public void checkProductSize() {
-        Assert.assertEquals(elementHelperAndroid.getText(productSize), "asd");
+        Assert.assertEquals(elementHelperAndroid.getText(productSize), itemSize);
     }
 
     public void checkProductColourLabel() {
@@ -79,7 +82,7 @@ public class CartPageAndroid {
     }
 
     public void checkProductColour() {
-        Assert.assertEquals(elementHelperAndroid.getText(productColour),"asd");
+        Assert.assertTrue(elementHelperAndroid.getText(productColour).contains(blackColour));
     }
 
     public void checkItemCountLabel() {
@@ -87,11 +90,11 @@ public class CartPageAndroid {
     }
 
     public void checkItemCount() {
-        Assert.assertEquals(elementHelperAndroid.getText(itemCount), "asd");
+        Assert.assertEquals(elementHelperAndroid.getText(itemCount), productCount);
     }
 
     public void checkProductItemPrice() {
-        Assert.assertEquals(elementHelperAndroid.getText(productItemPrice), "asd");
+        Assert.assertEquals(elementHelperAndroid.getText(productItemPrice), SearchResultsPageAndroid.price);
     }
 
     public void checkOrderSummaryLabel() {

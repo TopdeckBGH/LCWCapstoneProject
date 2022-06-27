@@ -5,5 +5,6 @@ public enum PriceLabels {
     OldPrice,
     DiscountedPrice,
     CartPrice,
-    NoDiscountPrice
+    NoDiscountPrice,
+    Title
 }
