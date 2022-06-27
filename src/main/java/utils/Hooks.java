@@ -23,13 +23,11 @@ public class Hooks {
     By cartItem = By.cssSelector("div.col-md-12 h1");
     By orderSummaryInfo = By.cssSelector("p.ordersummaryinfo");
     By cartItemAndroid = By.id("com.lcwaikiki.android:id/notificationsBadgeTextView");
-    By myCartLabel = By.id("com.lcwaikiki.android:id/toolbarTitle");
-    By deliveryLabel = By.xpath("//android.widget.TextView[@text='Teslimat Türü']");
     By cartButton = By.xpath("//android.widget.TextView[@text='Sepetim']");
     By trashBinButton = By.id("com.lcwaikiki.android:id/basketClearLayout");
     By deleteButton = By.id("com.lcwaikiki.android:id/buttonNegative");
     By paperBagImage = By.id("com.lcwaikiki.android:id/emptyBasketImage");
-
+    By emptyCart = By.cssSelector("p.cart-empty-title");
     By deliveryType = By.id("com.lcwaikiki.android:id/checkoutTitleText");
 
     static ApplicationTypes applicationTypes;
@@ -76,6 +74,7 @@ public class Hooks {
                       driver.get("https://www.lcwaikiki.com/tr-TR/TR/sepetim");
                       driver.findElement(By.cssSelector("i.fa-trash-o")).click();
                       driver.findElement(By.cssSelector(".sc-delete")).click();
+                      driver.findElement(emptyCart);
         }
         driver.quit();
     }
