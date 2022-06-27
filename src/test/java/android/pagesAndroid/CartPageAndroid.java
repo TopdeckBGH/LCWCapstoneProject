@@ -143,7 +143,7 @@ public class CartPageAndroid {
         Assert.assertEquals(elementHelperAndroid.getText(grandTotalSum), SearchResultsPageAndroid.price);
     }
     public void clickGoToPaymentPageButton() {
-        elementHelperAndroid.getText(goToPaymentPage);
+        elementHelperAndroid.click(goToPaymentPage);
     }
 //endregion
 }
