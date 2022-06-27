@@ -13,7 +13,5 @@ import utils.webUtils.DriverFactoryWeb;
         }
 )
 public class Runner extends AbstractTestNGCucumberTests{
-    static WebDriver driver = DriverFactoryWeb.getWebDriver();
-
 }
 
