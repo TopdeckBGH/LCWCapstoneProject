@@ -22,23 +22,18 @@ public class ElementHelperWeb {
         this.action = new Actions(driver);
     }
 
-    /**
-     * @param key
-     * @return
+    /** Finds the given element.
+     * @param key Distinctive value of the element.
+     * @return Specified element is returned.
      */
     public WebElement findElement(By key) {
         WebElement element = presenceElement(key);
         return element;
     }
 
-    public WebElement findElementNoWait(By key) {
-        WebElement element = driver.findElement(key);
-        return element;
-    }
-
-    /**
-     * @param key
-     * @return
+    /** Finds given elements.
+     * @param key Distinctive value of elements.
+     * @return Specified elements are returned.
      */
     public List<WebElement> findElements(By key) {
         List<WebElement> elements = presenceElements(key);
@@ -46,148 +41,56 @@ public class ElementHelperWeb {
         return elements;
     }
 
-    /**
-     * @param key
+    /** Specified element is clicked.
+     * @param key Distinctive value of the element.
      */
     public void click(By key) {
         findElement(key).click();
     }
 
-    /**
-     * @param key
-     * @param text
+    /** Given input is written in the specified element.
+     * @param key Distinctive value of the element.
+     * @param text Desired input.
      */
     public void sendKey(By key, String text) {
         findElement(key).sendKeys(text);
     }
 
-    /**
-     * @param key
-     * @return
+    /** Returns specified element's text value.
+     * @param key Distinctive value of the element.
+     * @return Specified element's text value is returned.
      */
     public String getText(By key) {
         return findElement(key).getText();
     }
 
-    /**
-     * @param key
-     * @param text
-     * @return
-     */
-    public boolean checkElementText(By key, String text) {
-        return wait.until(ExpectedConditions.textToBe(key, text));
-    }
-
-    /**
-     * @param key
-     */
-    public void checkElementVisible(By key) {
-        wait.until(ExpectedConditions.visibilityOf(findElement(key)));
-    }
-
-    /**
-     * @param key
-     */
-    public void checkElementPresence(By key) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(key));
-    }
-
-    /**
-     * @param text
-     * @return
-     */
-    public boolean checkTitle(String text) {
-        return wait.until(ExpectedConditions.titleIs(text));
-    }
-
-    /**
-     * @param key
-     * @param attr
-     * @return
+    /** Gets the specified elements specified attribute.
+     * @param key Distinctive value of the element.
+     * @param attr Specified attribute.
+     * @return Text of the specified elements specified attribute.
      */
     public String getAttribute(By key, String attr) {
         return findElement(key).getAttribute(attr);
     }
 
-    /**
-     * @param key
-     * @param attr
-     * @param text
-     */
-    public void checkAttribute(By key, String attr, String text) {
-        Assert.assertEquals(getAttribute(key, attr), text);
-    }
-
-    /**
-     * @param key
-     * @param text
-     */
-    public void clickElementWithText(By key, String text) {
-        List<WebElement> elements = findElements(key);
-        for (WebElement element : elements) {
-            if (element.getText().contains(text)) {
-                element.click();
-                break;
-            }
-        }
-    }
-
-    /**
-     * @param key
-     * @param text
-     */
-    public void checkElementWithText(By key, String text) {
-        boolean find = false;
-        List<WebElement> elements = findElements(key);
-        for (WebElement element : elements) {
-            if (element.getText().contains(text)) {
-                find = true;
-                break;
-            }
-        }
-        Assert.assertEquals(true, find);
-    }
-
-    /**
-     * @param key
-     * @param text
-     * @param text2
-     */
-    public void sendKeyElementWithText(By key, String text, String text2) {
-        boolean find = false;
-        List<WebElement> elements = findElements(key);
-        for (WebElement element : elements) {
-            if (element.getText().equals(text)) {
-                element.sendKeys(text2);
-                find = true;
-                break;
-            }
-        }
-        Assert.assertEquals(true, find);
-    }
-
-    /**
-     * @param key
-     * @return
+    /** Gets specified element.
+     * @param key Distinctive value of the element.
+     * @return Specified WebElement.
      */
     public WebElement presenceElement(By key) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(key));
     }
 
-    /**
-     * @param key
-     * @return
+    /** Gets specified elements.
+     * @param key Distinctive value of the element.
+     * @return Specified WebElements.
      */
     public List<WebElement> presenceElements(By key) {
         return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(key));
     }
 
-    public WebElement clickableElement(By key) {
-        return wait.until(ExpectedConditions.elementToBeClickable(key));
-    }
-
-    /**
-     * @param element
+    /** Scrolls to WebElement.
+     * @param element Given WebElement.
      */
     public void scrollToElement(WebElement element) {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
@@ -196,39 +99,12 @@ public class ElementHelperWeb {
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
     }
 
-    /**
-     * @param URL
-     */
-    public void checkURL(String URL) {
-        Assert.assertEquals(driver.getCurrentUrl(), URL);
-    }
-
-    public void checkElementWithText_False(By key, String text) {
-        boolean find = true;
-        List<WebElement> elements = findElements(key);
-        for (WebElement element : elements) {
-            if (!element.getText().contains(text)) {
-                find = false;
-                break;
-            }
-        }
-        Assert.assertEquals(false, find);
-    }
-
-    /**
-     * İmleci, istenilen Element'in üzerine getirir (Hover).
-     * @param key Girilen Element'in ayırt eidici özelliğidir.
-     */
     public void hoverToElement(By key){
         WebElement element = presenceElement(key);
         action.moveToElement(element).perform();
     }
 
 
-    /**
-     * @param key
-     * @param text
-     */
     public void hoverToElementWithText(By key, String text) {
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
@@ -239,11 +115,7 @@ public class ElementHelperWeb {
         }
     }
 
-    /**
-     *
-     * @param xOffset
-     * @param yOffset
-     */
+
     public void clickToLocation(int xOffset, int yOffset){
         action.moveByOffset(xOffset, yOffset).click().perform();
     }

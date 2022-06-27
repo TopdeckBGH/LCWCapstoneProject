@@ -47,6 +47,9 @@ public class ProductPageAndroid {
         elementHelperAndroid.click(upArrowButton);
     }
 
+    /**
+     * If M size is out of stock, goes back to search a product with M size until it finds.
+     */
     public void clickSizeMButton() {
         appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         while (elementHelperAndroid.assertElementIsVisible(noStockM)){
