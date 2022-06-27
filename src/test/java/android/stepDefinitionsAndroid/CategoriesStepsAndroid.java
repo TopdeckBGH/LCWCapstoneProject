@@ -13,6 +13,7 @@ public class CategoriesStepsAndroid {
     public void assertCategoriesPage() {
         categoriesPageAndroid.checkCategoriesLabel();
     }
+
     @When("Tap on \"Giyim\" Button")
     public void tapClothingButton() {
         categoriesPageAndroid.clickClothingButton();

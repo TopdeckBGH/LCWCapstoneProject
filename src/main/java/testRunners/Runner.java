@@ -9,9 +9,7 @@ import utils.webUtils.DriverFactoryWeb;
         features = {"src/test/java/android/featuresAndroid"},
         glue = {"android/stepDefinitionsAndroid", "utils"},
         tags = "@Android",
-        plugin = {"summary", "pretty", "html:Reports/CucumberReport/Reports.html",
-                "json:Reports/CucumberReport/Report",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         }
 )
 public class Runner extends AbstractTestNGCucumberTests{

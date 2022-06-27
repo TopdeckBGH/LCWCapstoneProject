@@ -82,6 +82,7 @@ public class ProductPageAndroid {
             searchResultsPageAndroid.clickFirstProductButton();
             clickUpArrowButton();
             clickSizeMButton();
+            checkItemName();
             clickAddToCartButton();
             clickGoToCartButton();
         }

@@ -62,7 +62,7 @@ public class SearchResultsPageAndroid {
     public By elementUpdater(PriceLabels priceLabels, int productNumber){
         switch(priceLabels) {
             case Element:
-                return By.xpath( product + productNumber + "]");
+                return By.xpath(product + productNumber + "]");
             case CartPrice:
                 return By.xpath(product + productNumber + "]" + inCart);
             case DiscountedPrice:
