@@ -3,6 +3,7 @@ package android.stepDefinitionsAndroid;
 import android.pagesAndroid.CartPageAndroid;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import utils.androidUtils.DriverFactoryAndroid;
 
 public class CartStepsAndroid {
@@ -63,5 +64,51 @@ public class CartStepsAndroid {
     public void assertOrderSummaryLabel() {
         cartPageAndroid.checkOrderSummaryLabel();
     }
+
+    @When("Tap on the Options Button")
+    public void tapOptionsButton() {
+        cartPageAndroid.clickOptionsButton();
+    }
+
+    @Then("Check \"Ürün Toplam\" Label Android")
+    public void assertProductTotalLabel() {
+        cartPageAndroid.checkProductTotalSumLabel();
+    }
+
+    @And("Check Product Total Sum Android")
+    public void assertProductTotal() {
+        cartPageAndroid.checkProductTotalSum();
+    }
+
+    @And("Check \"Ara Toplam\" Label Android")
+    public void assertSubTotalLabel() {
+        cartPageAndroid.checkSubTotalSumLabel();
+    }
+
+    @And("Check Subtotal Sum Android")
+    public void assertSubTotal() {
+        cartPageAndroid.checkSubTotalSum();
+    }
+
+    @And("Check \"Kargo Ücreti\" Label Android")
+    public void assertShipmentFeeLabel() {
+        cartPageAndroid.checkShipmentFeeLabel();
+    }
+
+    @And("Check \"GENEL TOPLAM\" Label Android")
+    public void assertGrandTotalSumLabel() {
+        cartPageAndroid.checkGrandTotalSumLabel();
+    }
+
+    @And("Check Grand Total Sum Android")
+    public void assertGrandTotalSum() {
+        cartPageAndroid.checkGrandTotalSum();
+    }
+
+    @When("Tap on \"ÖDEME ADIMINA GEÇ\" Button")
+    public void tapGoToPaymentPageButton() {
+        cartPageAndroid.clickGoToPaymentPageButton();
+    }
+
 
 }

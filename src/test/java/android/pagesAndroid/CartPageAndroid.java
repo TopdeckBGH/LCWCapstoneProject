@@ -1,7 +1,6 @@
 package android.pagesAndroid;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -29,6 +28,12 @@ public class CartPageAndroid {
     String productCount = "1";
     String itemSize = "M";
 
+    String productTotal = "Ürün Toplam";
+    String subTotal = "Ara Toplam";
+    String shipment = "Kargo Ücreti";
+    String grandTotal = "GENEL TOPLAM";
+    public static String shipmentPrice;
+
     // Elements
     By cartPageTitle = By.id("com.lcwaikiki.android:id/toolbarTitle");
     By productItemTitle = By.id("com.lcwaikiki.android:id/itemBasketTitleText");
@@ -47,16 +52,15 @@ public class CartPageAndroid {
     By productTotalSumLabel = By.id("com.lcwaikiki.android:id/totalLabelText");
     By productTotalSum = By.id("com.lcwaikiki.android:id/totalValueText");
     By subTotalSumLabel = By.id("com.lcwaikiki.android:id/subtotalLabelText");
-    By subTotalSun = By.id("com.lcwaikiki.android:id/subtotalValueText");
+    By subTotalSum = By.id("com.lcwaikiki.android:id/subtotalValueText");
     By shipmentFeeLabel = By.id("com.lcwaikiki.android:id/shippingLabelText");
     By shipmentFee = By.id("com.lcwaikiki.android:id/shippingValueText");
     By grandTotalSumLabel = By.id("com.lcwaikiki.android:id/grandTotalLabelText");
-    By getGrandTotalSum = By.id("com.lcwaikiki.android:id/grandTotalValueText");
+    By grandTotalSum = By.id("com.lcwaikiki.android:id/grandTotalValueText");
 
     By goToPaymentPage = By.id("com.lcwaikiki.android:id/tv_go_checkout");
 
     // Methods
-
     public void checkCartPage() {
         Assert.assertTrue(elementHelperAndroid.getText(cartPageTitle).contains(myCartPage));
     }
@@ -99,6 +103,42 @@ public class CartPageAndroid {
 
     public void checkOrderSummaryLabel() {
         Assert.assertEquals(elementHelperAndroid.getText(orderSummaryLabel), orderSummary);
+    }
+
+    public void clickOptionsButton() {
+        elementHelperAndroid.click(upDownArrowButton);
+    }
+
+    public void checkProductTotalSumLabel() {
+        Assert.assertEquals(elementHelperAndroid.getText(productTotalSumLabel), productTotal);
+    }
+
+    public void checkProductTotalSum() {
+        Assert.assertEquals(elementHelperAndroid.getText(productTotalSum), SearchResultsPageAndroid.price);
+    }
+
+    public void checkSubTotalSumLabel() {
+        Assert.assertEquals(elementHelperAndroid.getText(subTotalSumLabel), subTotal);
+    }
+
+    public void checkSubTotalSum() {
+        Assert.assertEquals(elementHelperAndroid.getText(subTotalSum), SearchResultsPageAndroid.price);
+    }
+
+    public void checkShipmentFeeLabel() {
+        shipmentPrice = elementHelperAndroid.getText(shipmentFee);
+        Assert.assertEquals(elementHelperAndroid.getText(shipmentFeeLabel), shipment);
+    }
+
+    public void checkGrandTotalSumLabel() {
+        Assert.assertEquals(elementHelperAndroid.getText(grandTotalSumLabel), grandTotal);
+    }
+
+    public void checkGrandTotalSum() {
+        Assert.assertEquals(elementHelperAndroid.getText(grandTotalSum), SearchResultsPageAndroid.price);
+    }
+    public void clickGoToPaymentPageButton() {
+        elementHelperAndroid.getText(goToPaymentPage);
     }
 
 }

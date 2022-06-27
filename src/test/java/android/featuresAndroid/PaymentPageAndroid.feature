@@ -35,14 +35,13 @@ Feature: Android Payment Page
     And Check Product Item Price Android
     And Check "Sipariş Özeti" Label
     When Tap on the Options Button
-    Then Check "Ürün Toplam" Label (Android)
-    And Check Product Total Sum (Android)
-    And Check "Ara Toplam" Label (Android)
-    And Check Subtotal Sum (Android)
-    And Check "Kargo Ücreti" Label (Android)
-    And Check Shipment Fee Sum (Android)
-    And Check "GENEL TOPLAM" Label (Android)
-    And Check Grand Total Sum (Android)
+    Then Check "Ürün Toplam" Label Android
+    And Check Product Total Sum Android
+    And Check "Ara Toplam" Label Android
+    And Check Subtotal Sum Android
+    And Check "Kargo Ücreti" Label Android
+    And Check "GENEL TOPLAM" Label Android
+    And Check Grand Total Sum Android
     When Tap on "ÖDEME ADIMINA GEÇ" Button
 #    Then Check Payment Page
 #    When Tap on the Up Arrow Button (Payment Page)
