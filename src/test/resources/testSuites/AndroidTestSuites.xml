@@ -2,9 +2,9 @@
 
 <suite name="LC Waikiki"  verbose="1" >
     <parameter name="browser" value="Android"/>
-    <test name="Login Page">
+    <test name="Payment Page">
         <classes>
-            <class name="testRunners.Runner"/>
+            <class name="testRunners.AndroidRunner"/>
         </classes>
     </test>
 </suite>
