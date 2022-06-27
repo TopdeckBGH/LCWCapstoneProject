@@ -18,6 +18,7 @@ public class CartPageAndroid {
     ElementHelperAndroid elementHelperAndroid;
     AppiumDriver appiumDriver;
 
+//region Info
     // Strings
     String myCartPage = "Sepetim";
     String size = "Beden:";
@@ -28,11 +29,6 @@ public class CartPageAndroid {
     String productCount = "1";
     String itemSize = "M";
 
-    String productTotal = "Ürün Toplam";
-    String subTotal = "Ara Toplam";
-    String shipment = "Kargo Ücreti";
-    String grandTotal = "GENEL TOPLAM";
-    public static String shipmentPrice;
 
     // Elements
     By cartPageTitle = By.id("com.lcwaikiki.android:id/toolbarTitle");
@@ -45,20 +41,6 @@ public class CartPageAndroid {
     By itemCountLabel = By.id("com.lcwaikiki.android:id/itemBasketCountToolsText");
     By itemCount = By.id("com.lcwaikiki.android:id/itemBasketCountText");
     By productItemPrice = By.id("com.lcwaikiki.android:id/itemBasketPrice");
-
-
-    By upDownArrowButton = By.xpath("//android.widget.RelativeLayout[contains(@resource-id, 'com.lcwaikiki.android:id/rlSummar')][1]/android.widget.ImageView");
-    By orderSummaryLabel = By.id("com.lcwaikiki.android:id/orderSummaryText");
-    By productTotalSumLabel = By.id("com.lcwaikiki.android:id/totalLabelText");
-    By productTotalSum = By.id("com.lcwaikiki.android:id/totalValueText");
-    By subTotalSumLabel = By.id("com.lcwaikiki.android:id/subtotalLabelText");
-    By subTotalSum = By.id("com.lcwaikiki.android:id/subtotalValueText");
-    By shipmentFeeLabel = By.id("com.lcwaikiki.android:id/shippingLabelText");
-    By shipmentFee = By.id("com.lcwaikiki.android:id/shippingValueText");
-    By grandTotalSumLabel = By.id("com.lcwaikiki.android:id/grandTotalLabelText");
-    By grandTotalSum = By.id("com.lcwaikiki.android:id/grandTotalValueText");
-
-    By goToPaymentPage = By.id("com.lcwaikiki.android:id/tv_go_checkout");
 
     // Methods
     public void checkCartPage() {
@@ -100,7 +82,30 @@ public class CartPageAndroid {
     public void checkProductItemPrice() {
         Assert.assertEquals(elementHelperAndroid.getText(productItemPrice), SearchResultsPageAndroid.price);
     }
+//endregion
 
+//region Summary
+    // Strings
+    String productTotal = "Ürün Toplam";
+    String subTotal = "Ara Toplam";
+    String shipment = "Kargo Ücreti";
+    String grandTotal = "GENEL TOPLAM";
+    public static String shipmentPrice;
+
+    // Elements
+    By orderSummaryLabel = By.id("com.lcwaikiki.android:id/orderSummaryText");
+    By upDownArrowButton = By.xpath("//android.widget.RelativeLayout[contains(@resource-id, 'com.lcwaikiki.android:id/rlSummar')][1]/android.widget.ImageView");
+    By productTotalSumLabel = By.id("com.lcwaikiki.android:id/totalLabelText");
+    By productTotalSum = By.id("com.lcwaikiki.android:id/totalValueText");
+    By subTotalSumLabel = By.id("com.lcwaikiki.android:id/subtotalLabelText");
+    By subTotalSum = By.id("com.lcwaikiki.android:id/subtotalValueText");
+    By shipmentFeeLabel = By.id("com.lcwaikiki.android:id/shippingLabelText");
+    By shipmentFee = By.id("com.lcwaikiki.android:id/shippingValueText");
+    By grandTotalSumLabel = By.id("com.lcwaikiki.android:id/grandTotalLabelText");
+    By grandTotalSum = By.id("com.lcwaikiki.android:id/grandTotalValueText");
+    By goToPaymentPage = By.id("com.lcwaikiki.android:id/tv_go_checkout");
+
+    // Methods
     public void checkOrderSummaryLabel() {
         Assert.assertEquals(elementHelperAndroid.getText(orderSummaryLabel), orderSummary);
     }
@@ -140,5 +145,5 @@ public class CartPageAndroid {
     public void clickGoToPaymentPageButton() {
         elementHelperAndroid.getText(goToPaymentPage);
     }
-
+//endregion
 }
