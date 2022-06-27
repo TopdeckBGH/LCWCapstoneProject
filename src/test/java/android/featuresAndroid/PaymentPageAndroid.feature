@@ -43,16 +43,16 @@ Feature: Android Payment Page
     And Check "GENEL TOPLAM" Label Android
     And Check Grand Total Sum Android
     When Tap on "ÖDEME ADIMINA GEÇ" Button
-#    Then Check Payment Page
-#    When Tap on the Up Arrow Button (Payment Page)
-#    Then Check "Ürün Toplam" Label Payment Page (Android)
-#    And Check Product Total Sum Payment Page (Android)
-#    And Check "Ara Toplam" Label Payment Page (Android)
-#    And Check Subtotal Sum Payment Page (Android)
-#    And Check "Kargo Ücreti" Label Payment Page (Android)
-#    And Check Shipment Fee Sum Payment Page (Android)
-#    And Check "GENEL TOPLAM" Label Payment Page (Android)
-#    And Check Grand Total Sum Payment Page (Android)
+    Then Check Payment Page
+    When Tap on the Up Arrow Button Payment Page
+    Then Check "Ürün Toplam" Label Payment Page Android
+    And Check Product Total Sum Payment Page Android
+    And Check "Ara Toplam" Label Payment Page Android
+    And Check Subtotal Sum Payment Page Android
+    And Check "Kargo Ücreti" Label Payment Page Android
+    And Check Shipment Fee Sum Payment Page Android
+    And Check "GENEL TOPLAM" Label Payment Page Android
+    And Check Grand Total Sum Payment Page Android
 
 
 
